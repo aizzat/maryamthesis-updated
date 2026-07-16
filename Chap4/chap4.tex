@@ -1,0 +1,24 @@
+\chapter{REFERENCING IN {\LaTeX}}
+
+\section{Introduction}
+References is automatically organize in your document. Any addition or modification to reference in the text will be automatically update the lists of references. There are two ways to insert your references into {\LaTeX}:
+
+\begin{itemize}
+\item you can embed them within the document itself. It's simpler, but it can be time-consuming if you are writing several papers about similar subjects so that you often have to cite the same books.
+\item you can store them in an external BibTeX file and then link them via a command to your current document and use a Bibtex style to define how they appear. This way you can create a small database of the references you might use and simply link them, letting {\LaTeX} work for you.
+\end{itemize}
+
+We will focus on the second approach since it is more efficient to handle large database.\\
+
+Although your preferred software manager can generate it automatically for you and you save it in \verb+whateverthename.bib+ file, I would advise you to manually check the details again.
+
+\section{Citing references}
+Type \verb+\cite{citationkey}+ where you want to cite a reference in your .tex document. If you don’t want an in text citation, but still want the reference to appear in the bibliography, use \verb+\nocite{citationkey}+.\\
+
+To include a page number in your in-text citation put it in square brackets before the citation key: \verb+\cite[p. 215]{citationkey}+.\\
+
+To cite multiple references include all the citation keys within the curly brackets separated by commas: \verb+\cite{citation01,citation02,citation03}+.\\
+
+For UMP template, we will be using APA styles. \textbf{natbib} package in preamble file is used for author-date citations. Natbib uses the command \verb+\citep{...}+ for a citation in brackets, such as: (Koppe, 2010) or \citet{Carvalho-etal-2008} and \verb+\citet{...}+ for a citation where only the year is in brackets, such as: Koppe (2010). Here, the command \verb+\cite+ will produce the same output as \verb+\citep+ or \citep{Carvalho-etal-2009}
+
+

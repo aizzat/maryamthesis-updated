@@ -1,0 +1,199 @@
+\listfiles
+\documentclass[a4paper,12pt,oneside]{book}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{lscape}
+\usepackage[a4paper,left=3.5cm,top=2.5cm,right=2.5cm,bottom=2.5cm]{geometry}
+\usepackage[nooneline]{caption}
+\usepackage[subfigure]{tocloft} 
+\usepackage{subfigure}
+\usepackage{indentfirst}
+\usepackage[natbibapa]{apacite}
+\setlength{\bibsep}{12pt}
+\usepackage{natbib}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref} % Use this to hide links. Delete [hidelinks] to unhide
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage[nottoc]{tocbibind}
+\usepackage{afterpage}
+\usepackage{titling}
+\usepackage{nomencl}
+\usepackage{glossaries}
+\usepackage{enumitem} 
+\usepackage{makeidx}
+\usepackage{graphicx}
+\graphicspath{{figures/}{./}}
+\usepackage{fontspec}
+\usepackage{tabularx}
+\usepackage{rotating} %delete this if you don't need sideways table
+\usepackage[toc,page,header]{appendix}
+\usepackage{minitoc}
+\usepackage{times}
+\usepackage{tocbasic}
+\usepackage{blindtext}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+ 
+\setmainfont{Times New Roman}
+\parindent=0.5in
+\pagestyle{plain}
+\titleformat{\chapter}[display]{\bfseries\normalfont\bfseries}{\vspace{-12ex}\filcenter\MakeUppercase{\chaptertitlename} \normalfont\bfseries\thechapter}{1ex}{\vspace{8ex}\filcenter}
+\titleformat{\section}{\vspace{2ex}\normalfont\bfseries}{\thesection}{0.25in}{}[\vspace{2ex}]
+\titleformat{\subsection}{\vspace{2ex}\normalfont\bfseries}{\thesubsection}{0.10in}{}[\vspace{2ex}]
+\titleformat{\subsubsection}{\vspace{2ex}\normalfont\bfseries}{\thesubsection}{0.10in}{}[\vspace{2ex}]
+
+% Centering titles for the ToC, Lof and Lot
+\renewcommand{\cfttoctitlefont}{\centering\normalfont\MakeUppercase}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\setlength{\cftbeforetoctitleskip}{-1.5em}
+\renewcommand{\cftloftitlefont}{\hfill\normalfont\MakeUppercase}
+\renewcommand{\cftafterloftitle}{\hfill}
+\setlength{\cftbeforeloftitleskip}{-1.5em}
+\renewcommand{\cftlottitlefont}{\hfill\normalfont\MakeUppercase}
+\renewcommand{\cftafterlottitle}{\hfill}
+\setlength{\cftbeforelottitleskip}{-1.5em}
+
+%definition of the list of appendices
+\makeatletter
+   \newcommand\tableofappendices
+     {\section*{LIST OF APPENDICES}\@starttoc{toa}}
+   \newcommand\l@appendix[2]
+     {\par\noindent\bfseries{#1}\hfill\bfseries{#2}\par}
+\makeatother
+
+%changingformatoflof
+\newlength\mylen
+\renewcommand\cfttabpresnum{\tablename~}
+\renewcommand\cfttabaftersnum{:}
+\settowidth\mylen{\cfttabpresnum\cfttabaftersnum}
+\addtolength\cfttabnumwidth{\mylen}
+
+%changingformatoflot
+\newlength\mylength
+\renewcommand\cftfigpresnum{\figurename~}
+\renewcommand\cftfigaftersnum{:}
+\settowidth\mylength{\cftfigpresnum\cftfigaftersnum}
+\addtolength\cftfignumwidth{\mylength}
+
+% Chapter entries formatting for frontmatter chapters
+\newcommand\frontmatterchaptoc{%
+\titlecontents{chapter}
+  [1.5em]{\addvspace{\baselineskip}}
+  {\contentslabel{1.5em}\MakeUppercase}
+  {\hspace*{-1.5em}\MakeUppercase}
+  {\titlerule*[1pc]{.}\contentspage}
+}
+
+% Chapter entries formatting for mainmatter chapters
+\newcommand\mainmatterchaptoc{%
+\titlecontents {chapter}
+  [5em]{\addvspace{\baselineskip}}
+  {\contentslabel{3em}\hspace*{-1em}\MakeUppercase}
+  {\MakeUppercase}
+  {\titlerule*[1pc]{.}\contentspage}
+}
+
+% Adjust the TOC horizontal spacing
+\cftsetindents{section}{0em}{3em}
+\cftsetindents{subsection}{3em}{3em}
+
+% Add word CHAPTER in toc
+\let\oldcftchappresnum\cftchappresnum
+\renewcommand*{\cftchappresnum}{CHAPTER \oldcftchappresnum} % change the chapter number to include the word "Chapter"
+\setlength{\cftchapnumwidth}{6.5em}
+
+\begin{document}
+
+\onehalfspacing
+
+\include{Frontmatter/copy}
+\include{Frontmatter/letter}
+% For Fakulti Komputeran enable this to include panels information
+%\include{Frontmatter/maklumatpanel}
+\include{Frontmatter/sv_declaration}
+\include{Frontmatter/stud_declaration}
+\addcontentsline{toc}{chapter}{\protect\textbf{DECLARATION}}
+\addtocontents{toc}{\protect\vskip-10pt} % to create single spacing between Decl and Title Page
+\addcontentsline{toc}{chapter}{\protect\textbf{TITLE PAGE}}
+\addtocontents{toc}{\protect\vskip-10pt} % to create single spacing between Title Page and Ackn
+\pagenumbering{gobble}
+\include{Titlepage/titlepage}
+{\protect\pagestyle{empty}}
+\titlespacing*{\chapter}{0pt}{-60pt}{40pt}
+\setcounter{page}{2}
+
+\frontmatter
+\renewcommand{\contentsname}{\hspace*{\fill}\normalfont\normalsize\textbf {TABLE OF CONTENTS}\hspace*{\fill}} 
+\renewcommand{\cftdot}{} % empty {} for no dots. you can have any symbol inside. 
+\addtocontents{toc}{\protect\vskip-10pt} % to create single spacing between Ackn and Abstrak
+\include{Frontmatter/acknowledgement}
+\addtocontents{toc}{\protect\vskip-10pt} % to create single spacing between Abstrak and Abstract
+\include{Frontmatter/abstrak_bm}
+\addtocontents{toc}{\protect\vskip-10pt} % to create single spacing between Abstract and TOC
+\include{Frontmatter/abstract_english}
+\doublespacing
+\addcontentsline{toc}{chapter}{TABLE OF CONTENTS}
+\addtocontents{toc}{\protect\vskip-10pt} % to create single spacing between TOC and LOT
+\tableofcontents
+\cleardoublepage
+%\addtocontents{lot}{\lotheading}% add heading to the first page in LoT
+\renewcommand\listtablename{\textbf{LIST OF TABLES}}
+\listoftables
+\cleardoublepage
+%\addtocontents{lof}{\lofheading}% add heading to the first page in LoF
+\addtocontents{toc}{\protect\vskip-10pt} % to create single spacing between LOT and LOF
+\renewcommand\listfigurename{\textbf{LIST OF FIGURES}}
+\listoffigures
+\addtocontents{toc}{\protect\vskip-10pt} % to create single spacing between LOF and LOS
+\cleardoublepage
+\addtocontents{toc}{\protect\vskip-10pt} % to create single spacing between LOS and LOAb
+\include{Frontmatter/symbols}
+\addtocontents{toc}{\protect\vskip-10pt} % to create single spacing between LOAb and LOAp
+\include{Frontmatter/abbreviations}
+\renewcommand{\nomname}{LIST OF APPENDICES}
+\titlespacing*{\chapter}{0pt}{-60pt}{40pt}
+\printnomenclature
+\include{Frontmatter/listappendices}
+\titlespacing*{\chapter}{0pt}{50pt}{40pt}
+
+% This is the main body of your thesis. Put your chapters here. Make sure you create a specific folder for each chapter.
+\mainmatter
+\include{Chap1/chap1}
+\include{Chap2/chap2}
+\include{Chap3/chap3}
+%\include{Chap4/chap4}
+%\include{Chap5/chap5}
+
+\renewcommand\bibname{REFERENCES}
+\bibliographystyle{apacite}
+\renewcommand{\doiprefix}{}
+\renewcommand{\doi}[1]{https://doi.org/#1}
+\titlespacing*{\chapter}{0pt}{-60pt}{40pt}
+% this command makes single spacing for reference
+\begingroup
+    \setlength{\bibsep}{10pt}
+    \setstretch{1}
+    \bibliography{rujukan}
+\endgroup
+%\bibliography{rujukan}  
+\titlespacing*{\chapter}{0pt}{50pt}{40pt}
+\cleardoublepage
+
+% Put your appendices here. Make sure you create a specific folder for each appendix.
+
+\appendix
+\let\appendixpagenameorig\appendixpagename
+\renewcommand{\appendixpagename}{\normalfont\MakeUppercase\appendixpagenameorig}
+\renewcommand{\appendixtocname}{APPENDICES}
+\expandafter\def\expandafter\appendixpagename%
+\expandafter{\expandafter\Large\appendixpagename}
+\appendixpage
+\cleardoublepage
+\titlespacing*{\chapter}{0pt}{-60pt}{40pt}
+\include{Appendix/Appendix}
+
+\end{document}

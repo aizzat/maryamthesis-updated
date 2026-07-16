@@ -1,0 +1,223 @@
+\chapter{UMP THESIS FORMAT}
+
+\section{Introduction}
+This template is to guide user on current UMP Thesis template using {\LaTeX}. Learning {\LaTeX} might be an arduous task at first, especially when it gives continuous error message (hey! those error message helps). The error message can be tricky at times and sometimes, it gives you an important warning as simple as missing \{, but you need to look carefully on what they mean and how to solve them.\\
+
+Forget about error messages, simply learn it using this guide, you will get used to {\LaTeX} in really short time.
+
+\section{Chapter and Section}
+Don't worry about the numbering chapter, section and subsection, using \verb+\chapter+, \verb+\section+ and \verb+\subsection+ command, {\LaTeX} will give automatic output for you, as long as you insert the correct input and command at the correct place. For chapters, call your \verb+\chapter+ in the preamble file under \verb+\mainmatter+ according to the arrangement of your thesis.
+
+\subsection{Subsection}
+Some text here.\\
+
+If you want to start new paragraph, put \verb+\\+ at the end of your paragraph before this paragraph. Nothing much here, keep reading this long text, I just wanted to make this paraghraph longer. Try removing \verb+\\+ from previous paragraph and see what happened.\\
+
+\noindent Insert \verb+\noindent+ at the beginning of the sentence in this paragraph if you want new paragraph but with no indentation.
+
+\section{UMP Table Format}
+We will start with table formatting. In chapter \ref{ch:tocloft}, you have learnt to use tabular environment. In this section, following UMP format, we will be using tabularx environment instead. \verb+tabularx+ environment gives full line table compared to \verb+tabular+ environment, which gives table's line according to its size.\\
+
+\noindent You could see the difference here,
+
+\begin{table}[h!]
+\caption{Using tabularx environment} 
+\begin{tabularx}{1\linewidth}{XXX}    \addlinespace
+    \toprule
+    Name & Score & Ranking \\
+    \toprule
+    Ali & 59 & 2 \\
+    Shah & 77 & 1 \\
+    \bottomrule
+    \end{tabularx}
+\end{table}
+
+\begin{table}[h!]
+\caption{Using tabular environment}
+\begin{tabular}{lll}
+\toprule
+    Name & Score & Ranking \\
+    \toprule
+    Ali & 59 & 2 \\
+    Shah & 77 & 1 \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\cleardoublepage %use this code when you want to finish the part at this page and continue the next part in the next page
+ 
+You might encounter this problem when you have a really really long text. 
+
+\begin{table}[h!]
+\caption{What is wrong with my table?} 
+\begin{tabularx}{1\linewidth}{XXX}    \addlinespace
+    \toprule
+    Name & Score & Ranking \\
+    \toprule
+    really really really really really really really long names & 59 & 2 \\
+    Shah & 77 & 1 \\
+    \bottomrule
+    \end{tabularx}
+\end{table}
+
+Say, you have a really long text in the line, you could change the size of each column by changing \verb+{XXX}+ to \verb+{p{desired width}p{desired width}p{desired width}}+
+
+\begin{table}[h!]
+\caption{Change column width}
+\begin{tabularx}{1\linewidth}{p{10.0cm}XX}    \addlinespace
+    \toprule
+    Name & Gender & Ranking \\
+    \toprule
+    really really really really really really really long names & 59 & 2 \\
+    Shah & 77 & 1 \\
+    \bottomrule
+    \end{tabularx}
+\end{table}
+
+Now, try making the table header text in bold.
+
+\section{Large landscape table}
+Yes, we could hear you! You probably need this large rotating table when dealing with quite numbers of columns.\\
+
+First, enable \verb+usepackage{rotating}+ which I have done it for you in preamble file. If you don't need the rotating table, don't think twice, you can simply delete this package.\\
+
+\begin{sidewaystable}[h!]
+    \centering
+\caption{Wide table}
+\begin{tabularx}{\textwidth}{XXXX}
+    \toprule
+what are we trying to do here & something  & some text & something something  \\
+    \toprule
+11111111111111111 & 22222222222  & 3333333333 & 4444444444  \\
+555555555 & 6666666666  & 777777777 & 88888888  \\
+\bottomrule
+\end{tabularx}
+\begin{flushleft}
+\textsuperscript{a} Things \\
+\textsuperscript{b} Things \\
+\textsuperscript{c} Things \\
+\end{flushleft}
+\end{sidewaystable}
+
+Before that, do you realise you don't have to worry about the table's caption numbering? This works for figures too. You will see this later.
+
+\cleardoublepage
+
+ \section{Figure, Label and Cross-references}
+ You probably expect the instructions on how to insert figure but no, the instructions are there before. See
+ \verb+chap1.tex+ where I inserted Package Manager GUI (Figure \ref{fig2:package_manager}).\\
+ 
+ Also, see how \verb+\ref+ and \verb+\label+ command to make hyper-reference for table, equations or sections.. Then, try to use them with equations, tables and sections.
+
+\section{Itemize and lists}
+{\LaTeX} supports two types of lists: \textbf{enumerate} produces numbered lists, while \textbf{itemize} is for bulleted lists. Each item is defined by \verb+\item+. For example, the following code\\
+
+\verb+\begin{enumerate}+\\
+\indent\verb+\item First thing+\\
+ \indent\verb+\item Second thing+\\
+ \indent\verb+\begin{itemize}+\\
+ \indent\verb+\item A sub-thing+\\
+ \indent\verb+\item Another sub-thing+\\
+ \indent\verb+\end{itemize}+\\
+\indent\verb+\item Third thing+\\
+\indent\verb+\end{enumerate}+\\
+ 
+ \noindent will produce things like this\\
+ \begin{enumerate}
+     \item First thing
+     \item Second thing
+     \begin{itemize}
+     \item A sub-thing
+     \item Another sub-thing
+     \end{itemize}
+     \item Third thing
+     \end{enumerate}
+
+\section{Equations}
+One of the main reasons for writing documents in {\LaTeX} is because it is really good at typesetting equations. Equations are written in ‘math mode’.
+
+\subsection{Inserting equations}
+You can enter math mode with an opening and closing dollar sign \$. This can be used to write mathematical symbols within a sentence. For example, typing \$1+2=3\$ produces $1 + 2 = 3$.\\
+
+If you want a “displayed” equation on its own line use \$\$...\$\$. For example, \$\$1+2=3\$\$ produces $$1+2=3$$.
+
+\noindent or this code \verb+\[...\]+, also produces the same output.
+
+\[ 1+2=3 \]
+
+For a numbered displayed equation, use \verb+\begin{equation}...\end{equation}+.
+For example, \verb+\begin{equation}1+\verb+2=3\end{equation}+ produces: 
+\begin{equation}
+\label{equation}
+1+2=3
+\end{equation}
+The equation number \ref{equation} refers to the chapter number, this will only appear if you are using a document class with chapters, such as report.\\
+
+Refer \url{https://www.overleaf.com/learn/latex/Mathematical_expressions} for more symbols and instructions for equations.
+
+
+
+ \section{Flowchart}
+ 
+Students definitely need flowchart to present the process of your research. Here, I am guiding you how to draw your flowchart. First, enable \verb+\usepackage[tikzpicture]+ and \verb+\usepackage[shapes,arrows]+, which in this template, I have done it for you.\\
+
+Here are some basic shapes and arrows you will need in your flowchart. You could change the thickness, width or height of the shapes accordingly at \verb+%Define block styles+ in your \verb+tex file.+\\
+
+Under \verb+%Place nodes+ commands, you can instruct {\LaTeX} where to place your shapes and its respective text. \verb+%Draw edges+ is used for drawing arrows in and out of your shapes.\\
+
+Here, I will take one example\\
+
+\verb+\node[block, below of=start](dc){Data collection}+. From this command, the instructions are \verb+["what shape", "location of the shape"]("whatever name"){"text"}+.\\
+
+Figure \ref{fig:flowchartex} is the example of one full flowchart:\\
+
+% Define block styles
+\tikzstyle{decision} = [diamond, draw, thick, 
+    text width=6.5em, text badly centered, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, thick, minimum width=6em, text centered, minimum height=3em, node distance=1.8cm]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse, thick, node distance=1.8cm,
+    minimum height=3em]
+
+\begin{figure}[h!]
+\begin{center}
+\vspace{5mm}
+\begin{tikzpicture}[node distance = 3.5cm, auto]
+    % Place nodes
+    \node [cloud] (start) {Start};
+    \node [block, below of=start] (dc) {Data collection};
+    \node [block, below of=dc] (da) {Data analysis};
+    \node [block, below of=da] (B) {Model B};
+    \node [block, below of=B] (ce) {Computational experiment};
+    \node [block, left of= B, node distance=3.8cm] (A) {Model A};
+    \node [block, right of=B, node distance=5cm] (C) {Model C};
+
+    \node [decision, below of=ce,node distance=3cm] (decide) {Is the data satisfied?};
+    
+    \node [block, below of=decide,node distance=3cm] (cs) {Comparative study};
+    \node [block, below of=cs] (srp) {Solving real problem};
+    \node [block, below of=srp] (dnc) {Discussion and conclusion};
+    \node [cloud, below of=dnc ] (stop) {Stop};
+    % Draw edges
+    \path [line] (start) -- (dc);
+    \path [line] (dc) -- (da);
+    \path [line] (da) -- (B);
+    \path [line] (da) -- (A);
+    \path [line] (da) -- (C);
+    \path [line] (B) -- (ce);
+    \path [line] (A) |- (ce);
+    \path [line] (C) |- (ce);
+    \path [line] (ce) -- (decide);
+    \path [line] (decide) -- node [, color=black] {Yes} (cs);
+    \path [line] (decide) -- (cs);
+    \path [line] (cs) -- (srp);
+    \path [line] (srp) -- (dnc);
+    \path [line] (dnc) -- (stop);
+    \path [line] (decide.east) --+ (7cm,0) |- (da) node [near start,right] {No};
+\end{tikzpicture}
+\caption{Flow chart of operational framework}
+	\label{fig:flowchartex}
+\end{center}
+\end{figure}
+\cleardoublepage
+
