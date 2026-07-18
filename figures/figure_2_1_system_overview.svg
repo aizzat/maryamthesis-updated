@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <style>
+    rect { fill: #e8f4f8; stroke: #333; stroke-width: 2; }
+    text { font-family: Arial, sans-serif; font-size: 14px; fill: #000; }
+    .title { font-size: 18px; font-weight: bold; }
+    line { stroke: #333; stroke-width: 2; }
+    polygon { fill: none; stroke: #333; stroke-width: 2; }
+  </style>
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" class="title">System Overview of Unmanned Ground Vehicle (UGV)</text>
+  <!-- Sensing Layer -->
+  <rect x="50" y="80" width="150" height="80" rx="5"/>
+  <text x="125" y="110" text-anchor="middle">LiDAR</text>
+  <text x="125" y="135" text-anchor="middle">Sensors</text>
+  <rect x="250" y="80" width="150" height="80" rx="5"/>
+  <text x="325" y="110" text-anchor="middle">Camera</text>
+  <text x="325" y="135" text-anchor="middle">Vision</text>
+  <rect x="450" y="80" width="150" height="80" rx="5"/>
+  <text x="525" y="110" text-anchor="middle">IMU/GNSS</text>
+  <text x="525" y="135" text-anchor="middle">Localization</text>
+  <!-- Processing Layer -->
+  <rect x="150" y="220" width="500" height="80" rx="5"/>
+  <text x="400" y="255" text-anchor="middle" font-size="16px" font-weight="bold">Path Planning & Navigation System</text>
+  <!-- Output Layer -->
+  <rect x="50" y="360" width="150" height="80" rx="5"/>
+  <text x="125" y="390" text-anchor="middle">Motor</text>
+  <text x="125" y="415" text-anchor="middle">Control</text>
+  <rect x="250" y="360" width="150" height="80" rx="5"/>
+  <text x="325" y="390" text-anchor="middle">Vehicle</text>
+  <text x="325" y="415" text-anchor="middle">Dynamics</text>
+  <rect x="450" y="360" width="150" height="80" rx="5"/>
+  <text x="525" y="390" text-anchor="middle">Trajectory</text>
+  <text x="525" y="415" text-anchor="middle">Tracking</text>
+  <!-- Connecting arrows -->
+  <line x1="125" y1="160" x2="125" y2="220"/>
+  <polygon points="125,220 120,210 130,210"/>
+  <line x1="325" y1="160" x2="325" y2="220"/>
+  <polygon points="325,220 320,210 330,210"/>
+  <line x1="525" y1="160" x2="525" y2="220"/>
+  <polygon points="525,220 520,210 530,210"/>
+  <!-- To output layer -->
+  <line x1="125" y1="300" x2="125" y2="360"/>
+  <polygon points="125,360 120,350 130,350"/>
+  <line x1="325" y1="300" x2="325" y2="360"/>
+  <polygon points="325,360 320,350 330,350"/>
+  <line x1="525" y1="300" x2="525" y2="360"/>
+  <polygon points="525,360 520,350 530,350"/>
+  <!-- Legend -->
+  <text x="50" y="540" font-size="12px">Input Sensors → Processing → Output Control</text>
+</svg>
