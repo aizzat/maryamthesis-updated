@@ -36,7 +36,8 @@
 \usepackage{tocbasic}
 \usepackage{blindtext}
 \usepackage{tikz}
-\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{shapes,arrows,shapes.geometric,arrows.meta,positioning}
+\emergencystretch=1.5em
  
 \setmainfont{Times New Roman}
 \parindent=0.5in
@@ -110,6 +111,7 @@
 
 \onehalfspacing
 
+\include{Frontmatter/coverpage}
 \include{Frontmatter/copy}
 \include{Frontmatter/letter}
 % For Fakulti Komputeran enable this to include panels information
@@ -130,7 +132,7 @@
 \renewcommand{\contentsname}{\hspace*{\fill}\normalfont\normalsize\textbf {TABLE OF CONTENTS}\hspace*{\fill}} 
 \renewcommand{\cftdot}{} % empty {} for no dots. you can have any symbol inside. 
 \addtocontents{toc}{\protect\vskip-10pt} % to create single spacing between Ackn and Abstrak
-\include{Frontmatter/acknowledgement}
+%\include{Frontmatter/acknowledgement}
 \addtocontents{toc}{\protect\vskip-10pt} % to create single spacing between Abstrak and Abstract
 \include{Frontmatter/abstrak_bm}
 \addtocontents{toc}{\protect\vskip-10pt} % to create single spacing between Abstract and TOC
@@ -165,7 +167,7 @@
 \include{Chap1/chap1}
 \include{Chap2/chap2}
 \include{Chap3/chap3}
-%\include{Chap4/chap4}
+\include{Chap4/chap4}
 %\include{Chap5/chap5}
 
 \renewcommand\bibname{REFERENCES}

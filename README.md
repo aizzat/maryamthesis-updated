@@ -14,6 +14,7 @@ The thesis explores advanced navigation architectures for heavy agricultural mac
 - `Appendix/`: Supplementary material and appendices.
 - `figures/`: Images, charts, and diagrams used throughout the chapters.
 - `rujukan.bib`: The central bibliography file containing all formatted references used in the thesis.
+- `REFERENCE CHECK/`: Contains automated reports verifying the bibliography entries and citation contexts.
 - `format_tex.py`: A utility Python script used to format and wrap `.tex` files for improved readability.
 - `UMP template.pdf`: The latest successfully compiled output of the thesis.
 
