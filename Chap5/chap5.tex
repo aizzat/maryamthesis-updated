@@ -3,10 +3,15 @@
 \section{Introduction}
 This template is to guide user on current UMP Thesis template using {\LaTeX}. Learning {\LaTeX} might be an arduous task at first, especially when it gives continuous error message (hey! those error message helps). The error message can be tricky at times and sometimes, it gives you an important warning as simple as missing \{, but you need to look carefully on what they mean and how to solve them.\\
 
-Forget about error messages, simply learn it using this guide, you will get used to {\LaTeX} in really short time.
+Forget about error messages, simply learn it using this guide, you will get used to {\LaTeX} in
+really short time.
 
 \section{Chapter and Section}
-Don't worry about the numbering chapter, section and subsection, using \verb+\chapter+, \verb+\section+ and \verb+\subsection+ command, {\LaTeX} will give automatic output for you, as long as you insert the correct input and command at the correct place. For chapters, call your \verb+\chapter+ in the preamble file under \verb+\mainmatter+ according to the arrangement of your thesis.
+Don't worry about the numbering chapter, section and subsection, using \verb+\chapter+,
+\verb+\section+ and \verb+\subsection+ command, {\LaTeX} will give automatic output for you, as long
+as you insert the correct input and command at the correct place. For chapters, call your
+\verb+\chapter+ in the preamble file under \verb+\mainmatter+ according to the arrangement of your
+thesis.
 
 \subsection{Subsection}
 Some text here.\\
@@ -44,7 +49,8 @@ We will start with table formatting. In chapter \ref{ch:tocloft}, you have learn
 \end{tabular}
 \end{table}
 
-\cleardoublepage %use this code when you want to finish the part at this page and continue the next part in the next page
+\cleardoublepage %use this code when you want to finish the part at this page and continue the next
+part in the next page
  
 You might encounter this problem when you have a really really long text. 
 
@@ -60,7 +66,8 @@ You might encounter this problem when you have a really really long text.
     \end{tabularx}
 \end{table}
 
-Say, you have a really long text in the line, you could change the size of each column by changing \verb+{XXX}+ to \verb+{p{desired width}p{desired width}p{desired width}}+
+Say, you have a really long text in the line, you could change the size of each column by changing
+\verb+{XXX}+ to \verb+{p{desired width}p{desired width}p{desired width}}+
 
 \begin{table}[h!]
 \caption{Change column width}
@@ -99,15 +106,18 @@ what are we trying to do here & something  & some text & something something  \\
 \end{flushleft}
 \end{sidewaystable}
 
-Before that, do you realise you don't have to worry about the table's caption numbering? This works for figures too. You will see this later.
+Before that, do you realise you don't have to worry about the table's caption numbering? This works
+for figures too. You will see this later.
 
 \cleardoublepage
 
  \section{Figure, Label and Cross-references}
- You probably expect the instructions on how to insert figure but no, the instructions are there before. See
+ You probably expect the instructions on how to insert figure but no, the instructions are there
+before. See
  \verb+chap1.tex+ where I inserted Package Manager GUI (Figure \ref{fig2:package_manager}).\\
  
- Also, see how \verb+\ref+ and \verb+\label+ command to make hyper-reference for table, equations or sections.. Then, try to use them with equations, tables and sections.
+ Also, see how \verb+\ref+ and \verb+\label+ command to make hyper-reference for table, equations or
+sections.. Then, try to use them with equations, tables and sections.
 
 \section{Itemize and lists}
 {\LaTeX} supports two types of lists: \textbf{enumerate} produces numbered lists, while \textbf{itemize} is for bulleted lists. Each item is defined by \verb+\item+. For example, the following code\\
@@ -134,12 +144,14 @@ Before that, do you realise you don't have to worry about the table's caption nu
      \end{enumerate}
 
 \section{Equations}
-One of the main reasons for writing documents in {\LaTeX} is because it is really good at typesetting equations. Equations are written in ‘math mode’.
+One of the main reasons for writing documents in {\LaTeX} is because it is really good at
+typesetting equations. Equations are written in ‘math mode’.
 
 \subsection{Inserting equations}
 You can enter math mode with an opening and closing dollar sign \$. This can be used to write mathematical symbols within a sentence. For example, typing \$1+2=3\$ produces $1 + 2 = 3$.\\
 
-If you want a “displayed” equation on its own line use \$\$...\$\$. For example, \$\$1+2=3\$\$ produces $$1+2=3$$.
+If you want a “displayed” equation on its own line use \$\$...\$\$. For example, \$\$1+2=3\$\$
+produces $$1+2=3$$.
 
 \noindent or this code \verb+\[...\]+, also produces the same output.
 
@@ -153,7 +165,8 @@ For example, \verb+\begin{equation}1+\verb+2=3\end{equation}+ produces:
 \end{equation}
 The equation number \ref{equation} refers to the chapter number, this will only appear if you are using a document class with chapters, such as report.\\
 
-Refer \url{https://www.overleaf.com/learn/latex/Mathematical_expressions} for more symbols and instructions for equations.
+Refer \url{https://www.overleaf.com/learn/latex/Mathematical_expressions} for more symbols and
+instructions for equations.
 
 
 
@@ -174,7 +187,8 @@ Figure \ref{fig:flowchartex} is the example of one full flowchart:\\
 % Define block styles
 \tikzstyle{decision} = [diamond, draw, thick, 
     text width=6.5em, text badly centered, inner sep=0pt]
-\tikzstyle{block} = [rectangle, draw, thick, minimum width=6em, text centered, minimum height=3em, node distance=1.8cm]
+\tikzstyle{block} = [rectangle, draw, thick, minimum width=6em, text centered, minimum height=3em,
+node distance=1.8cm]
 \tikzstyle{line} = [draw, -latex']
 \tikzstyle{cloud} = [draw, ellipse, thick, node distance=1.8cm,
     minimum height=3em]

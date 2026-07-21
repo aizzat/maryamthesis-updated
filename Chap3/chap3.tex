@@ -2,15 +2,46 @@
 
 \section{Introduction}
 
-This chapter presents a comprehensive and mathematically rigorous exposition of the engineering methodology developed to realize the multi-objective autonomous navigation architecture established in Chapter 1. The algorithmic and validation frameworks designed herein are systematically structured around three core pipeline milestones: first, the mathematical formulation of a two-and-a-half-dimensional (2.5D) A* graph-search algorithm that directly embeds physical three-dimensional step distances (3DSD), localized slope magnitudes (SM), and an adjustable slope weight parameter ($\lambda$) into a unified multi-terrain cost function; second, the development of a post-processing B-spline trajectory refinement module that couples continuous curve optimization with a high-frequency discrete sampling check to actively enforce vehicle climbability thresholds and boundary constraints; and third, the implementation of a simulation-based benchmarking suite to evaluate the terrain-aware pathfinder directly against a conventional flat 2D baseline planner. Consequently, this introductory framework serves as the structural foundation for the algorithmic mechanics, kinematic verifications, and empirical data trends detailed throughout this study.
+This chapter presents a comprehensive and mathematically rigorous exposition of the engineering
+methodology developed to realize the multi-objective autonomous navigation architecture established
+in Chapter 1. The algorithmic and validation frameworks designed herein are systematically
+structured around three core pipeline milestones: first, the mathematical formulation of a
+two-and-a-half-dimensional (2.5D) A* graph-search algorithm that directly embeds physical
+three-dimensional step distances (3DSD), localized slope magnitudes (SM), and an adjustable slope
+weight parameter ($\lambda$) into a unified multi-terrain cost function; second, the development of
+a post-processing B-spline trajectory refinement module that couples continuous curve optimization
+with a high-frequency discrete sampling check to actively enforce vehicle climbability thresholds
+and boundary constraints; and third, the implementation of a simulation-based benchmarking suite to
+evaluate the terrain-aware pathfinder directly against a conventional flat 2D baseline planner.
+Consequently, this introductory framework serves as the structural foundation for the algorithmic
+mechanics, kinematic verifications, and empirical data trends detailed throughout this study.
 
-To ensure strict reproducibility and technical transparency within a simulated field environment, this chapter details the explicit computational components, procedural pipelines, and analytical strategies used to validate the system. It describes the synthesized digital assets, the computational processing infrastructure, the step-by-step terrain grid synthesis, the parameter configuration matrices, and the data acquisition protocols. Each architectural choice is systematically justified relative to the specific technical gaps identified in contemporary field robotics literature, ensuring that the resulting metrics directly address the study's core research questions. By executing these sequential validation protocols within a highly controlled virtual sandbox, this methodology establishes a reliable, repeatable, and hardware-scalable environment for quantifying the exact safety and efficiency gains achieved by the proposed terrain-aware framework.
+To ensure strict reproducibility and technical transparency within a simulated field environment,
+this chapter details the explicit computational components, procedural pipelines, and analytical
+strategies used to validate the system. It describes the synthesized digital assets, the
+computational processing infrastructure, the step-by-step terrain grid synthesis, the parameter
+configuration matrices, and the data acquisition protocols. Each architectural choice is
+systematically justified relative to the specific technical gaps identified in contemporary field
+robotics literature, ensuring that the resulting metrics directly address the study's core research
+questions. By executing these sequential validation protocols within a highly controlled virtual
+sandbox, this methodology establishes a reliable, repeatable, and hardware-scalable environment for
+quantifying the exact safety and efficiency gains achieved by the proposed terrain-aware framework.
 
 \section{Research Design and Experimental Architecture}
 
-The validation of the proposed motion planning architecture relies on a deterministic, simulation-based experimental design configured around a comparative performance benchmarking paradigm. This systemic architecture is engineered to quantitatively evaluate the operational efficacy of the proposed terrain-aware 2.5D A* algorithm against a conventional flat 2D planar baseline under rigidly controlled and perfectly reproducible environmental conditions. Developing this framework within an entirely virtual software sandbox enables the systematic manipulation of high-dimensional input variables and the precise observation of resulting path characteristics. Consequently, this digital design choice eliminates the unpredictable logistical overhead, physical hardware constraints, and safety hazards inherent in physical off-road agricultural field testing, while guaranteeing absolute mathematical consistency across all evaluation trials.
+The validation of the proposed motion planning architecture relies on a deterministic,
+simulation-based experimental design configured around a comparative performance benchmarking
+paradigm. This systemic architecture is engineered to quantitatively evaluate the operational
+efficacy of the proposed terrain-aware 2.5D A* algorithm against a conventional flat 2D planar
+baseline under rigidly controlled and perfectly reproducible environmental conditions. Developing
+this framework within an entirely virtual software sandbox enables the systematic manipulation of
+high-dimensional input variables and the precise observation of resulting path characteristics.
+Consequently, this digital design choice eliminates the unpredictable logistical overhead, physical
+hardware constraints, and safety hazards inherent in physical off-road agricultural field testing,
+while guaranteeing absolute mathematical consistency across all evaluation trials.
 
-To thoroughly examine the runtime behavior and optimization limits of the pathfinder, the experimental variables are structured into a multi-tiered evaluation matrix:
+To thoroughly examine the runtime behavior and optimization limits of the pathfinder, the
+experimental variables are structured into a multi-tiered evaluation matrix:
 
 \begin{itemize}
     \item \textbf{Terrain Relief Severity Configurations:} The workspace environment is parameterized into three distinct synthetic, deterministic 3D agricultural terrain maps characterizing low-gradient plains, medium-relief hills, and high-relief escarpments. This geometric variation ensures a comprehensive evaluation of the algorithm's topological robustness and structural adaptability across a realistic spectrum of topographical hazards common to unmanaged agricultural fields.
@@ -20,7 +51,9 @@ To thoroughly examine the runtime behavior and optimization limits of the pathfi
     \item \textbf{Start-Goal Coordinate Pairs:} To ensure statistical generalizability and eliminate spatial selection bias, three unique, representative start-to-goal coordinate vectors are defined for each distinct terrain profile map.
 \end{itemize}
 
-To maintain internal validity and isolate the performance variations caused by these primary variables, a rigid suite of constant system parameters is uniformly enforced across all computational trials:
+To maintain internal validity and isolate the performance variations caused by these primary
+variables, a rigid suite of constant system parameters is uniformly enforced across all
+computational trials:
 
 \begin{itemize}
     \item \textbf{Grid Cell Size Map Resolution:} All structural 2.5D elevation matrices are strictly maintained at a uniform coordinate resolution of $500 \times 500$ cells.
@@ -30,13 +63,23 @@ To maintain internal validity and isolate the performance variations caused by t
     \item \textbf{Vegetation Traversal Penalty (VTP) Value:} A fixed scalar cost penalty is uniformly applied to grid coordinates containing dense canopy distributions, reflecting increased locomotion resistance and crop protection boundaries without making the cells strictly forbidden.
 \end{itemize}
 
-For robust performance verification, a total of 15 automated evaluation runs are executed per terrain profile map. This execution matrix comprises evaluating each of the three unique start-goal coordinate vectors across the five distinct slope cost weight settings. This systematic experimental architecture provides the comprehensive empirical datasets necessary to satisfy Objective 3, establishing a clear, multi-variant foundation for performance verification.
+For robust performance verification, a total of 15 automated evaluation runs are executed per
+terrain profile map. This execution matrix comprises evaluating each of the three unique start-goal
+coordinate vectors across the five distinct slope cost weight settings. This systematic experimental
+architecture provides the comprehensive empirical datasets necessary to satisfy Objective 3,
+establishing a clear, multi-variant foundation for performance verification.
 
 \section{Spatial Data Representations and Environmental Modeling}
 
-The environmental modeling pipeline within this computational architecture relies entirely on structured synthetic data arrays that represent the topographical and semantic layers of the agricultural workspace. Because this research is conducted within a virtual development sandbox, these digitized spatial matrices serve as the primary inputs for the navigation stack. Utilizing pure software-driven environmental configurations guarantees that all input geometries remain perfectly controlled, mathematically consistent, and reproducible across all simulation trials.
+The environmental modeling pipeline within this computational architecture relies entirely on
+structured synthetic data arrays that represent the topographical and semantic layers of the
+agricultural workspace. Because this research is conducted within a virtual development sandbox,
+these digitized spatial matrices serve as the primary inputs for the navigation stack. Utilizing
+pure software-driven environmental configurations guarantees that all input geometries remain
+perfectly controlled, mathematically consistent, and reproducible across all simulation trials.
 
-To construct a high-fidelity workspace for algorithmic evaluation, the environmental datasets are organized into four interconnected core representations:
+To construct a high-fidelity workspace for algorithmic evaluation, the environmental datasets are
+organized into four interconnected core representations:
 
 \begin{itemize}
     \item \textbf{Simulation-Derived 3D Point Cloud Data (.pcd Format):} The foundational spatial data originates as dense three-dimensional (3D) point clouds stored in the standard .pcd file format, mimicking the raw spatial coordinate vectors output by high-resolution field Light Detection and Ranging (LiDAR) sensor suites. These unorganized geometric matrices provide the high-fidelity structural foundation needed to synthesize varied, repeatable terrain profiles without introducing sensor noise or physical environmental variables.
@@ -50,9 +93,16 @@ To construct a high-fidelity workspace for algorithmic evaluation, the environme
 
 \section{Computational Infrastructure and Software Ecosystem}
 
-The computational validation environment configured for this research comprises a unified software development stack deployed on dedicated processing hardware. Because this methodology bypasses physical mechanical instrumentation, the selected software assets and computing hardware serve as the core infrastructure necessary to compile the navigation logic, execute high-frequency constraint checks, and render dense geometric terrain environments. Standardizing this digital pipeline ensures absolute algorithmic repeatability and eliminates external hardware-induced latency fluctuations across all benchmarking trials.
+The computational validation environment configured for this research comprises a unified software
+development stack deployed on dedicated processing hardware. Because this methodology bypasses
+physical mechanical instrumentation, the selected software assets and computing hardware serve as
+the core infrastructure necessary to compile the navigation logic, execute high-frequency constraint
+checks, and render dense geometric terrain environments. Standardizing this digital pipeline ensures
+absolute algorithmic repeatability and eliminates external hardware-induced latency fluctuations
+across all benchmarking trials.
 
-To manage the processing demands of the multi-objective trajectory simulation, the computational architecture is partitioned into three primary operational tiers:
+To manage the processing demands of the multi-objective trajectory simulation, the computational
+architecture is partitioned into three primary operational tiers:
 
 \begin{itemize}
     \item \textbf{Hardware Processing Infrastructure:} Computational experiments are executed on a dedicated local processing station. This hardware environment provides the multi-threaded throughput and memory bandwidth required to run dense graph-search operations, spatial heightfield conversions, and continuous B-spline matrix solvers without data throttling.
@@ -76,7 +126,14 @@ To manage the processing demands of the multi-objective trajectory simulation, t
 \label{fig:real_platform}
 \end{figure}
 
-To ground the virtual workspace boundaries within realistic operational limits, the kinematic specifications of the Pix Kit autonomous field platform are integrated as design constraints during software development. While no physical vehicle trials are conducted within the scope of this thesis, the platform's real-world parameters---specifically its wheelbase geometry, track width, center of mass elevation, and electrical powertrain limits---are used to establish the hard Maximum Climbable Slope ($\theta_{MCS}$) limits enforced within the cost function. Aligning the simulation parameters with a commercial-grade autonomous chassis ensures that the generated global trajectories remain safe, practical, and highly relevant for future physical agricultural deployments.
+To ground the virtual workspace boundaries within realistic operational limits, the kinematic
+specifications of the Pix Kit autonomous field platform are integrated as design constraints during
+software development. While no physical vehicle trials are conducted within the scope of this
+thesis, the platform's real-world parameters---specifically its wheelbase geometry, track width,
+center of mass elevation, and electrical powertrain limits---are used to establish the hard Maximum
+Climbable Slope ($\theta_{MCS}$) limits enforced within the cost function. Aligning the simulation
+parameters with a commercial-grade autonomous chassis ensures that the generated global trajectories
+remain safe, practical, and highly relevant for future physical agricultural deployments.
 
 \section{Algorithmic Pipeline and Implementation Procedures}
 
@@ -85,12 +142,15 @@ To ground the virtual workspace boundaries within realistic operational limits, 
 \resizebox{\textwidth}{!}{%
 \begin{tikzpicture}[
     node distance=0.9cm and 0.6cm,
-    box/.style={rectangle, draw, rounded corners=2pt, align=center, minimum height=0.9cm, minimum width=0.78\linewidth, text width=0.74\linewidth, inner sep=4pt, fill=gray!8},
-    hbox/.style={rectangle, draw, rounded corners=2pt, align=center, minimum height=0.9cm, minimum width=0.38\linewidth, text width=0.34\linewidth, inner sep=4pt, fill=gray!8},
+    box/.style={rectangle, draw, rounded corners=2pt, align=center, minimum height=0.9cm, minimum
+width=0.78\linewidth, text width=0.74\linewidth, inner sep=4pt, fill=gray!8},
+    hbox/.style={rectangle, draw, rounded corners=2pt, align=center, minimum height=0.9cm, minimum
+width=0.38\linewidth, text width=0.34\linewidth, inner sep=4pt, fill=gray!8},
     arr/.style={-{Latex[length=1.7mm]}, thick},
     small/.style={font=\scriptsize}
 ]
-    \node[draw, rounded corners=3pt, minimum width=0.82\linewidth, minimum height=2.7cm, fill=green!5] (scene) {};
+    \node[draw, rounded corners=3pt, minimum width=0.82\linewidth, minimum height=2.7cm,
+fill=green!5] (scene) {};
 
     \begin{scope}[shift={(scene.center)}, x=0.82cm, y=0.82cm]
         \coordinate (terrainStart) at (-3.9,-0.55);
@@ -101,8 +161,10 @@ To ground the virtual workspace boundaries within realistic operational limits, 
         \coordinate (terrainE) at (2.3,0.12);
         \coordinate (terrainF) at (3.8,-0.05);
 
-        \fill[green!18] (terrainStart) -- (terrainA) -- (terrainB) -- (terrainC) -- (terrainD) -- (terrainE) -- (terrainF) -- (3.8,-1.15) -- (-3.9,-1.15) -- cycle;
-        \draw[thick] (terrainStart) -- (terrainA) -- (terrainB) -- (terrainC) -- (terrainD) -- (terrainE) -- (terrainF);
+        \fill[green!18] (terrainStart) -- (terrainA) -- (terrainB) -- (terrainC) -- (terrainD) --
+(terrainE) -- (terrainF) -- (3.8,-1.15) -- (-3.9,-1.15) -- cycle;
+        \draw[thick] (terrainStart) -- (terrainA) -- (terrainB) -- (terrainC) -- (terrainD) --
+(terrainE) -- (terrainF);
 
         \fill[green!45!black] (-2.25,0.02) circle (0.14);
         \fill[green!45!black] (-2.25,0.24) circle (0.1);
@@ -113,8 +175,10 @@ To ground the virtual workspace boundaries within realistic operational limits, 
         \fill[green!45!black] (2.27,0.12) circle (0.1);
         \fill[green!45!black] (2.63,0.12) circle (0.1);
 
-        \draw[orange!80!black, line width=1.2pt] (-3.35,-0.18) .. controls (-2.2,0.55) and (-1.1,-0.85) .. (0.05,-0.02) .. controls (1.1,0.72) and (2.0,-0.18) .. (3.2,0.05);
-        \draw[blue!70!black, dashed, line width=1pt] (-3.35,-0.32) .. controls (-2.3,0.02) and (-1.05,-0.28) .. (0.02,-0.12) .. controls (1.08,0.08) and (2.0,-0.02) .. (3.2,-0.02);
+        \draw[orange!80!black, line width=1.2pt] (-3.35,-0.18) .. controls (-2.2,0.55) and
+(-1.1,-0.85) .. (0.05,-0.02) .. controls (1.1,0.72) and (2.0,-0.18) .. (3.2,0.05);
+        \draw[blue!70!black, dashed, line width=1pt] (-3.35,-0.32) .. controls (-2.3,0.02) and
+(-1.05,-0.28) .. (0.02,-0.12) .. controls (1.08,0.08) and (2.0,-0.02) .. (3.2,-0.02);
 
         \draw[fill=gray!25] (-0.75,-0.12) circle (0.14);
         \draw[fill=gray!25] (-0.25,0.06) circle (0.14);
@@ -132,20 +196,29 @@ To ground the virtual workspace boundaries within realistic operational limits, 
         \node[small, text=blue!70!black] at (0.95,-0.92) {smoothed path};
     \end{scope}
 
-    \node[box, below=of scene] (pcd) {Point-cloud map input in .pcd format (e.g., Autoware or ROS2 mapping output)};
-    \node[hbox, below left=0.9cm and 0.2cm of pcd] (ros2) {Conventional ROS2 planning branch: 2D occupancy-grid map and planar A*};
-    \node[hbox, below right=0.9cm and 0.2cm of pcd] (grid) {Proposed branch: rasterization into a 2.5D elevation grid with vegetation layer};
-    \node[hbox, below=of ros2] (ros2out) {Resulting baseline: computationally efficient route with limited terrain awareness};
-    \node[hbox, below=of grid] (astar) {A* search with slope-feasibility filtering and terrain-aware traversal cost};
-    \node[hbox, below=of astar] (smooth) {B-spline refinement followed by sampled boundary, vegetation, and slope validation};
-    \node[hbox, below=of smooth] (metrics) {Evaluation of path length, energy proxy, travel-time proxy, runtime, and turn-angle reduction};
+    \node[box, below=of scene] (pcd) {Point-cloud map input in .pcd format (e.g., Autoware or ROS2
+mapping output)};
+    \node[hbox, below left=0.9cm and 0.2cm of pcd] (ros2) {Conventional ROS2 planning branch: 2D
+occupancy-grid map and planar A*};
+    \node[hbox, below right=0.9cm and 0.2cm of pcd] (grid) {Proposed branch: rasterization into a
+2.5D elevation grid with vegetation layer};
+    \node[hbox, below=of ros2] (ros2out) {Resulting baseline: computationally efficient route with
+limited terrain awareness};
+    \node[hbox, below=of grid] (astar) {A* search with slope-feasibility filtering and terrain-aware
+traversal cost};
+    \node[hbox, below=of astar] (smooth) {B-spline refinement followed by sampled boundary,
+vegetation, and slope validation};
+    \node[hbox, below=of smooth] (metrics) {Evaluation of path length, energy proxy, travel-time
+proxy, runtime, and turn-angle reduction};
 
     \coordinate (split) at ([yshift=-0.35cm]pcd.south);
     \draw[arr] (scene.south) -- (pcd.north);
     \draw[arr] (pcd.south) -- (split);
     \fill (split) circle (1.1pt);
-    \draw[arr] (split) -| node[pos=0.58, above, fill=white, inner sep=1pt] {\scriptsize 2D method} (ros2.north);
-    \draw[arr] (split) -| node[pos=0.58, above, fill=white, inner sep=1pt] {\scriptsize 2.5D method} (grid.north);
+    \draw[arr] (split) -| node[pos=0.58, above, fill=white, inner sep=1pt] {\scriptsize 2D method}
+(ros2.north);
+    \draw[arr] (split) -| node[pos=0.58, above, fill=white, inner sep=1pt] {\scriptsize 2.5D method}
+(grid.north);
     \draw[arr] (ros2.south) -- (ros2out.north);
     \draw[arr] (grid.south) -- (astar.north);
     \draw[arr] (astar.south) -- (smooth.north);
@@ -158,7 +231,10 @@ To ground the virtual workspace boundaries within realistic operational limits, 
 
 \subsection{Point Cloud Rasterization and 2.5D Grid Generation}
 
-The initial phase of the methodology establishes the foundational environmental workspace by transforming unstructured, high-density three-dimensional (3D) spatial coordinate vectors into a discretized topology optimized for graph-search operations. This data transformation process operates through three tightly coupled execution steps:
+The initial phase of the methodology establishes the foundational environmental workspace by
+transforming unstructured, high-density three-dimensional (3D) spatial coordinate vectors into a
+discretized topology optimized for graph-search operations. This data transformation process
+operates through three tightly coupled execution steps:
 
 \begin{itemize}
     \item \textbf{Volumetric Data Input:} The pipeline initializes by loading synthetic 3D point cloud datasets (.pcd format) characterizing the three benchmark agricultural terrain profiles (low-gradient plains, medium-relief rolling hills, and high-relief escarpments). These unorganized point matrices provide the true baseline geometric information of the simulated agricultural workspace.
@@ -177,7 +253,15 @@ The initial phase of the methodology establishes the foundational environmental 
 
 \subsection{Formulation of Terrain-Aware Step Traversal Cost (STC)}
 
-To achieve a highly responsive, topology-aware graph expansion under the modified A* path planning architecture, a novel terrain-aware Step Traversal Cost (STC) function is formulated to evaluate edge weights between adjacent nodes. This multi-variant cost model directly satisfies the requirements of Objective 1 by integrating physical three-dimensional step distances ($d_{3D}$), localized slope magnitudes ($\theta$), a semantic vegetation modifier ($V_{penalty}$), and an adjustable slope weight parameter ($\lambda$) into a unified optimization metric. For a discrete translation step from a current parent cell $P$ to an adjacent candidate cell $C$ within an 8-connected neighborhood, the instantaneous traversal cost is modeled via the following structural equation:
+To achieve a highly responsive, topology-aware graph expansion under the modified A* path planning
+architecture, a novel terrain-aware Step Traversal Cost (STC) function is formulated to evaluate
+edge weights between adjacent nodes. This multi-variant cost model directly satisfies the
+requirements of Objective 1 by integrating physical three-dimensional step distances ($d_{3D}$),
+localized slope magnitudes ($\theta$), a semantic vegetation modifier ($V_{penalty}$), and an
+adjustable slope weight parameter ($\lambda$) into a unified optimization metric. For a discrete
+translation step from a current parent cell $P$ to an adjacent candidate cell $C$ within an
+8-connected neighborhood, the instantaneous traversal cost is modeled via the following structural
+equation:
 
 \begin{table}[htbp]
 \caption{Nomenclature}
@@ -219,7 +303,8 @@ $I^{\uparrow}_{k,k+1}$ & Uphill-motion indicator for path segment $k$ to $k+1$. 
     \begin{equation}
         \theta(P, C) = \arctan\left(\frac{|z_C - z_P|}{d_{2D}(P, C)}\right)
     \end{equation}
-    Elevated $\theta$ profiles indicate high-relief terrain features that introduce immediate kinematic tracking hazards, track slippage, or platform instability.
+    Elevated $\theta$ profiles indicate high-relief terrain features that introduce immediate
+kinematic tracking hazards, track slippage, or platform instability.
 
     \item \textbf{Adjustable Slope Weight Parameter ($\lambda$):} This scalar coefficient scales the mathematical impact of the local slope magnitude on the total accumulative step cost. Swept systematically across five discrete settings within this research design: $\lambda \in \{0.0, \allowbreak 0.25, \allowbreak 0.5, \allowbreak 0.75, \allowbreak 1.0\}$. A higher $\lambda$ value heavily penalizes steep inclines, forcing the graph-search routine to bypass prominent elevation changes in favor of lateral contour paths. This tunability allows field engineers to dynamically realign the navigation system based on vehicle power limits, soil conditions, or operational preferences (e.g., minimizing fuel consumption versus minimizing overall transit distance).
 
@@ -228,7 +313,14 @@ $I^{\uparrow}_{k,k+1}$ & Uphill-motion indicator for path segment $k$ to $k+1$. 
 
 \subsection{Implementation of Modified 2.5D A* Search Algorithm}
 
-The core graph-search architecture underpins a modified A* path planning algorithm configured to execute across an 8-connected grid network topology. This implementation operates directly on the compiled elevation matrices, using the previously formulated Step Traversal Cost (STC) to dynamically alter node cost evaluation. By integrating real-time geometric and semantic terrain layers into the primary search loop, the pathfinder proactively routes the mobile robot around untraversable topographical features. The deterministic graph search evaluates and registers candidate nodes by incorporating these continuous cost metrics into the standard A* heuristic evaluation framework:
+The core graph-search architecture underpins a modified A* path planning algorithm configured to
+execute across an 8-connected grid network topology. This implementation operates directly on the
+compiled elevation matrices, using the previously formulated Step Traversal Cost (STC) to
+dynamically alter node cost evaluation. By integrating real-time geometric and semantic terrain
+layers into the primary search loop, the pathfinder proactively routes the mobile robot around
+untraversable topographical features. The deterministic graph search evaluates and registers
+candidate nodes by incorporating these continuous cost metrics into the standard A* heuristic
+evaluation framework:
 
 \begin{equation}
     f(n) = g(n) + h(n)
@@ -241,24 +333,40 @@ The core graph-search architecture underpins a modified A* path planning algorit
     \begin{equation}
         g(n) = \sum_{i=0}^{k} STC(P_i, C_i)
     \end{equation}
-    By mapping $g(n)$ directly to the STC function, the algorithm intrinsically considers the combined effects of the three-dimensional step distance ($d_{3D}$), localized slope magnitude ($\theta$), the user-defined slope weight parameter ($\lambda$), and the semantic vegetation traversal penalty ($V_{penalty}$) during the live graph exploration phase.
+    By mapping $g(n)$ directly to the STC function, the algorithm intrinsically considers the
+combined effects of the three-dimensional step distance ($d_{3D}$), localized slope magnitude
+($\theta$), the user-defined slope weight parameter ($\lambda$), and the semantic vegetation
+traversal penalty ($V_{penalty}$) during the live graph exploration phase.
 
     \item \textbf{Heuristic Function ($h(n)$):} The heuristic function $h(n)$ provides a computationally efficient, goal-directed bias by estimating the remaining traversal cost from the current node $n$ to the terminal goal state. To guarantee mathematical admissibility (ensuring the planner never overestimates the true remaining cost) and secure global optimality, $h(n)$ is parameterized as the true three-dimensional (3D) Euclidean distance between node center coordinates:
     \begin{equation}
         h(n) = \sqrt{(x_{goal} - x_n)^2 + (y_{goal} - y_n)^2 + (z_{goal} - z_n)^2}
     \end{equation}
-    This spatial formulation ensures that vertical height field variations between the active search front and the goal coordinate are accounted for, generating an accurate and admissible heuristic envelope.
+    This spatial formulation ensures that vertical height field variations between the active search
+front and the goal coordinate are accounted for, generating an accurate and admissible heuristic
+envelope.
 
     \item \textbf{Hard Maximum Climbable Slope (MCS) Safety Filter:} To prevent the pathfinder from generating trajectories that violate the hard physical operating limits of the agricultural mobile platform, a proactive safety constraint checker is embedded directly within the neighbor expansion loop. Prior to pushing a valid neighbor node onto the Open List, the local slope magnitude ($\theta$) between parent cell $P$ and candidate cell $C$ is evaluated against the non-negotiable vehicle threshold ($\theta_{MCS}$):
     \begin{equation}
         \text{if } \theta(P, C) > \theta_{MCS} \Rightarrow \text{node } C \text{ is pruned (impassable)}
     \end{equation}
-    Any potential step that exceeds this boundary is immediately classified as un-traversable, forcing the algorithm to treat the target coordinate as a rigid structural obstacle and prune it from the active search space. This proactive filtering guarantees that all generated raw paths respect the structural stability limits of the underlying vehicle chassis before entering the trajectory refinement stage.
+    Any potential step that exceeds this boundary is immediately classified as un-traversable,
+forcing the algorithm to treat the target coordinate as a rigid structural obstacle and prune it
+from the active search space. This proactive filtering guarantees that all generated raw paths
+respect the structural stability limits of the underlying vehicle chassis before entering the
+trajectory refinement stage.
 \end{itemize}
 
 \subsection{Conventional 2D Baseline Path Planning}
 
-To establish a rigorous mathematical baseline for the comparative analysis executed in Objective 3, a conventional planar A* algorithm is implemented as a benchmark tracking routine. This control planner operates exclusively on a flattened, two-dimensional matrix projection of the environment, completely stripped of continuous vertical height topologies and localized surface gradients. By executing graph exploration over this simplified configuration layout, the baseline pathfinder generates standard piece-wise linear trajectories that reflect traditional coordinate routing methodologies. The planar search routine evaluates grid nodes within a standard 8-connected pixel neighborhood using the baseline evaluation function:
+To establish a rigorous mathematical baseline for the comparative analysis executed in Objective 3,
+a conventional planar A* algorithm is implemented as a benchmark tracking routine. This control
+planner operates exclusively on a flattened, two-dimensional matrix projection of the environment,
+completely stripped of continuous vertical height topologies and localized surface gradients. By
+executing graph exploration over this simplified configuration layout, the baseline pathfinder
+generates standard piece-wise linear trajectories that reflect traditional coordinate routing
+methodologies. The planar search routine evaluates grid nodes within a standard 8-connected pixel
+neighborhood using the baseline evaluation function:
 
 \begin{equation}
     f_{2D}(n) = g_{2D}(n) + h_{2D}(n)
@@ -282,7 +390,11 @@ To establish a rigorous mathematical baseline for the comparative analysis execu
 
 \subsection{Open-Uniform B-spline Trajectory Smoothing with Feasibility Checks}
 
-Following the generation of the initial, discrete path waypoints from either the proposed 2.5D A* or the baseline 2D A* graph-search algorithms, the trajectory is passed into a specialized post-processing refinement module. This pipeline phase directly satisfies Objective 2 by optimizing path curvature while actively validating safety and environmental constraints across the continuous domain. This dual-purpose refinement process operates through two sequential operations:
+Following the generation of the initial, discrete path waypoints from either the proposed 2.5D A* or
+the baseline 2D A* graph-search algorithms, the trajectory is passed into a specialized
+post-processing refinement module. This pipeline phase directly satisfies Objective 2 by optimizing
+path curvature while actively validating safety and environmental constraints across the continuous
+domain. This dual-purpose refinement process operates through two sequential operations:
 
 \begin{itemize}
     \item \textbf{Open-Uniform B-spline Curve Fitting:} The ordered set of discrete waypoints output by the pathfinder is treated as a topological control point matrix to generate an open-uniform B-spline curve. B-spline formulations are chosen for trajectory optimization because of their local support property, which allows for localized geometric adjustments without causing global shape deformation. To achieve smooth, continuous vehicle velocities and bounded lateral acceleration profiles during physical trajectory tracking, the refinement module enforces strict $C^2$ continuity across the parametric curve. Furthermore, using an open-uniform knot vector configuration clamps the terminal endpoints of the spline function, forcing the continuous curve to pass exactly through the original start and goal coordinate coordinates to maintain global boundary alignment.
@@ -295,17 +407,36 @@ Following the generation of the initial, discrete path waypoints from either the
     \end{itemize}
 \end{itemize}
 
-This multi-layered validation routine acts as a strict safety filter during the post-processing phase, preventing the generation of trajectories that are kinematically smooth but physically untraversable or unsafe for field operation.
+This multi-layered validation routine acts as a strict safety filter during the post-processing
+phase, preventing the generation of trajectories that are kinematically smooth but physically
+untraversable or unsafe for field operation.
 
 \subsection{Parametric Data Logging}
 
-To ensure an objective and comprehensive benchmarking process, the optimization framework is coupled with an automated parametric data-logging module. Upon the successful completion and validation of each trajectory generated by both the proposed 2.5D A* terrain-aware algorithm and the conventional 2D A* baseline planner, the logging system intercepts the workspace state and captures a high-fidelity quantitative profile. This data package tracks five primary operational metrics: exact three-dimensional path length ($L_{3D}$), speed-adjusted travel-time proxies (TTP), computational execution runtimes, uphill-selective energy consumption proxies (ECP), and the adjustable slope weight coefficient ($\lambda$). These recorded performance vectors are systematically dumped into structured flat files (.csv format), creating a clean empirical ledger that supports direct statistical cross-evaluation during the performance verification stage.
+To ensure an objective and comprehensive benchmarking process, the optimization framework is coupled
+with an automated parametric data-logging module. Upon the successful completion and validation of
+each trajectory generated by both the proposed 2.5D A* terrain-aware algorithm and the conventional
+2D A* baseline planner, the logging system intercepts the workspace state and captures a
+high-fidelity quantitative profile. This data package tracks five primary operational metrics: exact
+three-dimensional path length ($L_{3D}$), speed-adjusted travel-time proxies (TTP), computational
+execution runtimes, uphill-selective energy consumption proxies (ECP), and the adjustable slope
+weight coefficient ($\lambda$). These recorded performance vectors are systematically dumped into
+structured flat files (.csv format), creating a clean empirical ledger that supports direct
+statistical cross-evaluation during the performance verification stage.
 
 \section{Digital Map Synthesis and Environmental Configuration}
 
-The generation of standardized, controlled, and math\-e\-mat\-i\-cal\-ly re\-pro\-duc\-i\-ble work\-spaces is a necessary pre\-req\-ui\-site for isolating the optimization performance of the underlying pathfinding routines. Because this research bypasses physical field deployments, the environmental mapping configurations are generated synthetically to establish clear topographical benchmarks. This software-driven synthesis process eliminates chaotic real-world variables---such as dynamic weather conditions, localized GPS multipath interference, or soil shear strength fluctuations---while ensuring that all input maps share a uniform cell resolution and data layout to maximize internal validation.
+The generation of standardized, controlled, and math\-e\-mat\-i\-cal\-ly re\-pro\-duc\-i\-ble
+work\-spaces is a necessary pre\-req\-ui\-site for isolating the optimization performance of the
+underlying pathfinding routines. Because this research bypasses physical field deployments, the
+environmental mapping configurations are generated synthetically to establish clear topographical
+benchmarks. This software-driven synthesis process eliminates chaotic real-world variables---such as
+dynamic weather conditions, localized GPS multipath interference, or soil shear strength
+fluctuations---while ensuring that all input maps share a uniform cell resolution and data layout to
+maximize internal validation.
 
-To build out the evaluation workspace, the environmental data synthesis pipeline executes across four tightly integrated configuration phases:
+To build out the evaluation workspace, the environmental data synthesis pipeline executes across
+four tightly integrated configuration phases:
 
 \begin{itemize}
     \item \textbf{High-Fidelity Point Cloud Generation:} The synthesis begins with programmatically generating dense, three-dimensional (3D) point cloud matrices stored in the standard .pcd file format. These point configurations are mathematically generated to build three distinct agricultural terrain profiles classified by relief severity: low-gradient plains, medium-relief rolling hills, and high-relief escarpments. This geometric step locks in the baseline spatial characteristics for each experimental scenario, ensuring that the primary elevation data remains completely controlled and reproducible across independent testing blocks.
@@ -319,9 +450,16 @@ To build out the evaluation workspace, the environmental data synthesis pipeline
 
 \section{Verification Framework and Benchmarking Protocols}
 
-The operational performance and structural reliability of the navigation architecture are evaluated using a deterministic, simulation-based path planning benchmarking suite. Because this research bypasses physical mechanical deployment, the verification loop relies on software-driven performance benchmarking to isolate internal system behaviors from external environmental variables. This rigorous analytical design choice replaces unpredictable laboratory variables with highly reproducible, software-defined testing boundaries, providing clear, uncompromised empirical evidence that directly addresses Objective 3.
+The operational performance and structural reliability of the navigation architecture are evaluated
+using a deterministic, simulation-based path planning benchmarking suite. Because this research
+bypasses physical mechanical deployment, the verification loop relies on software-driven performance
+benchmarking to isolate internal system behaviors from external environmental variables. This
+rigorous analytical design choice replaces unpredictable laboratory variables with highly
+reproducible, software-defined testing boundaries, providing clear, uncompromised empirical evidence
+that directly addresses Objective 3.
 
-To systematically map out the operational boundaries and optimization trade-offs of the pathfinder, the evaluation pipeline is structured into three primary benchmarking domains:
+To systematically map out the operational boundaries and optimization trade-offs of the pathfinder,
+the evaluation pipeline is structured into three primary benchmarking domains:
 
 \begin{itemize}
     \item \textbf{High-Fidelity Virtual Environment Testing:} All algorithmic iterations, coordinate expansion loops, constraint checking steps, and structural path visualizations are conducted within a unified virtual simulation sandbox. This fully digitized environment supports precise replication of experiments, isolation of independent design variables, and targeted edge-case testing without the systemic tracking noise, GPS signal degradation, mechanical wear, or structural safety hazards inherent to physical off-road autonomous mobile robot trials.
@@ -336,7 +474,9 @@ To systematically map out the operational boundaries and optimization trade-offs
     \end{itemize}
 \end{itemize}
 
-This systematic distribution yields exactly 15 automated evaluation runs per terrain profile map, totaling 45 unique data points for the proposed pathfinder, which are mirrored by corresponding control trials using the planar 2D A* baseline.
+This systematic distribution yields exactly 15 automated evaluation runs per terrain profile map,
+totaling 45 unique data points for the proposed pathfinder, which are mirrored by corresponding
+control trials using the planar 2D A* baseline.
 
 \begin{table}[htbp]
 \caption{Experimental configuration}
@@ -362,13 +502,30 @@ Reported runtimes & Planning time and B-spline smoothing plus validation time \\
 
 \subsection{Performance Characterization Suite}
 
-For every path generated across the 45 unique test configurations and their corresponding baseline trials, a comprehensive suite of quantitative performance metrics is calculated and recorded. Rather than evaluating path aesthetics qualitatively, this thesis utilizes numerical data logging to evaluate trajectory viability across five primary areas: total three-dimensional path length ($L_{3D}$), speed-adjusted travel-time proxies (TTP), overall computational execution runtime, uphill-selective energy consumption proxies (ECP), and path smoothness indices derived from continuous B-spline derivative variations. This structured data acquisition strategy provides the foundational datasets required to verify the efficiency, structural safety, and real-time edge-computing viability of the proposed framework, ensuring total alignment with the final objectives of this study.
+For every path generated across the 45 unique test configurations and their corresponding baseline
+trials, a comprehensive suite of quantitative performance metrics is calculated and recorded. Rather
+than evaluating path aesthetics qualitatively, this thesis utilizes numerical data logging to
+evaluate trajectory viability across five primary areas: total three-dimensional path length
+($L_{3D}$), speed-adjusted travel-time proxies (TTP), overall computational execution runtime,
+uphill-selective energy consumption proxies (ECP), and path smoothness indices derived from
+continuous B-spline derivative variations. This structured data acquisition strategy provides the
+foundational datasets required to verify the efficiency, structural safety, and real-time
+edge-computing viability of the proposed framework, ensuring total alignment with the final
+objectives of this study.
 
 \section{Automated Data Collection Protocols}
 
-Data collection is executed as an automated, high-frequency process that hooks directly into the core navigation pipeline during simulation trials. Upon the validation of a trajectory generated by either the proposed terrain-aware 2.5D A* algorithm or the conventional 2D A* baseline, the execution loop pauses to dump the complete internal state vector of the pathfinder. This systematic logging routine generates an exhaustive, multi-variant dataset completely free from human transcription errors or sampling irregularities. By capturing synchronized spatial, temporal, and mechanical variables simultaneously, this collection architecture provides the foundational data needed to run detailed trade-off analyses across varying slope weight ($\lambda$) configurations.
+Data collection is executed as an automated, high-frequency process that hooks directly into the
+core navigation pipeline during simulation trials. Upon the validation of a trajectory generated by
+either the proposed terrain-aware 2.5D A* algorithm or the conventional 2D A* baseline, the
+execution loop pauses to dump the complete internal state vector of the pathfinder. This systematic
+logging routine generates an exhaustive, multi-variant dataset completely free from human
+transcription errors or sampling irregularities. By capturing synchronized spatial, temporal, and
+mechanical variables simultaneously, this collection architecture provides the foundational data
+needed to run detailed trade-off analyses across varying slope weight ($\lambda$) configurations.
 
-To support the comparative evaluations detailed in Objective 3, five distinct response properties are precisely computed, mapped, and logged for each individual trajectory:
+To support the comparative evaluations detailed in Objective 3, five distinct response properties
+are precisely computed, mapped, and logged for each individual trajectory:
 
 \begin{itemize}
     \item \textbf{Total Three-Dimensional Path Length ($L_{3D}$):} This metric registers the absolute cumulative Euclidean length of the path segments in 3D space. By incorporating vertical coordinate changes along the heightfield, this parameter captures the true physical distance traveled over undulating agricultural landscapes rather than relying on a shortened horizontal projection.
@@ -384,9 +541,15 @@ To support the comparative evaluations detailed in Objective 3, five distinct re
 
 \section{Data Analysis and Statistical Framework}
 
-The compiled empirical dataset is subjected to a comparative multi-metric statistical evaluation using a Python-based processing pipeline. Rather than relying on isolated qualitative observations, this analytical framework uses quantitative descriptive and inferential tracking models to evaluate the system. This structured data analysis phase provides the mathematical validation required to address Objective 3, translating raw logged simulation data into verifiable performance trends regarding path safety, efficiency, and real-time edge viability.
+The compiled empirical dataset is subjected to a comparative multi-metric statistical evaluation
+using a Python-based processing pipeline. Rather than relying on isolated qualitative observations,
+this analytical framework uses quantitative descriptive and inferential tracking models to evaluate
+the system. This structured data analysis phase provides the mathematical validation required to
+address Objective 3, translating raw logged simulation data into verifiable performance trends
+regarding path safety, efficiency, and real-time edge viability.
 
-To extract meaningful engineering conclusions from the 45 unique simulation configurations and their corresponding baseline runs, the data analysis framework implements four interconnected operations:
+To extract meaningful engineering conclusions from the 45 unique simulation configurations and their
+corresponding baseline runs, the data analysis framework implements four interconnected operations:
 
 \begin{itemize}
     \item \textbf{Direct Comparative Performance Analysis:} Trajectory metrics are grouped by terrain profile severity (low-gradient, medium-relief, and high-relief) and cross-referenced against their exact start-to-goal vector pairs. The performance parameters achieved by the proposed terrain-aware 2.5D A* pathfinder are directly compared against the flat 2D A* planar control baseline using percentage-difference matrices. This localized alignment isolates the precise geometric, temporal, and energetic trade-offs caused by removing vertical topology during global path planning.
@@ -400,9 +563,16 @@ To extract meaningful engineering conclusions from the 45 unique simulation conf
 
 \section{Architectural Reliability, Repeatability, and Error Control}
 
-Securing the systemic reliability, structural repeatability, and strict error control of all experimental outcomes is fundamental to establishing the scientific rigor and validity of this research. Because empirical evaluation is executed within a purely digital workspace, error propagation is managed by neutralizing stochastic software behaviors and environmental variables. This highly controlled engineering design choice ensures that any recorded variances in the performance ledger are exclusively a function of algorithmic design and parameter tuning, satisfying the strict documentation requirements of reproducible technical research.
+Securing the systemic reliability, structural repeatability, and strict error control of all
+experimental outcomes is fundamental to establishing the scientific rigor and validity of this
+research. Because empirical evaluation is executed within a purely digital workspace, error
+propagation is managed by neutralizing stochastic software behaviors and environmental variables.
+This highly controlled engineering design choice ensures that any recorded variances in the
+performance ledger are exclusively a function of algorithmic design and parameter tuning, satisfying
+the strict documentation requirements of reproducible technical research.
 
-To maintain rigid internal validity and enforce strict error control across the experimental framework, the methodology implements five core control mechanisms:
+To maintain rigid internal validity and enforce strict error control across the experimental
+framework, the methodology implements five core control mechanisms:
 
 \begin{itemize}
     \item \textbf{Deterministic Simulation Environment Architecture:} The software stack operates within an entirely deterministic virtual simulation architecture. Because all stochastic search heuristics are omitted from both the proposed 2.5D A* algorithm and the 2D A* baseline, providing identical inputs---specifically matching the heightfield matrices, start-to-goal vector pairs, and scaling coefficients---consistently yields identical path trajectories and processing costs. This algebraic determinism supports robust comparative analysis and guarantees a mathematical repeatability coefficient of 1.0.
@@ -416,13 +586,31 @@ To maintain rigid internal validity and enforce strict error control across the 
     \item \textbf{Control Group Baseline Integration:} The conventional flat 2D A* planar pathfinder serves as an algorithmic control group within this research design. Benchmarking the proposed 2.5D A* terrain-aware algorithm against this flat baseline isolates the specific performance changes gained from multi-dimensional terrain awareness, preventing overestimation of algorithmic utility.
 \end{itemize}
 
-While virtual simulation models represent a necessary geometric abstraction of physical field dynamics, this highly controlled and repeatable testing framework establishes a mathematically sound environment for validating path planning logic. It provides a reliable engineering foundation for verifying theoretical optimization bounds and identifying promising navigation advancements before migrating the software modules onto physical agricultural platforms.
+While virtual simulation models represent a necessary geometric abstraction of physical field
+dynamics, this highly controlled and repeatable testing framework establishes a mathematically sound
+environment for validating path planning logic. It provides a reliable engineering foundation for
+verifying theoretical optimization bounds and identifying promising navigation advancements before
+migrating the software modules onto physical agricultural platforms.
 
 \section{Summary of Methodology}
 
-This chapter has presented a detailed and mathematically rigorous overview of the engineering methodology developed to achieve the research objectives of this Master's thesis. The underlying experimental design is structured around a deterministic, simulation-based comparative study engineered to evaluate the operational efficacy of the proposed terrain-aware 2.5D A* path planning framework against a conventional flat 2D A* planar control baseline. The environmental architecture relies on high-fidelity synthetic 3D point cloud datasets rasterized into static 2.5D elevation matrices using a conservative maximum elevation mapping envelope. These heightfields are seamlessly integrated with programmatically generated single-layer semantic vegetation penalty masks to construct a controlled testing suite spanning three distinct topographical relief profiles: low-gradient plains, medium-relief rolling hills, and high-relief escarpments. All algorithmic modules, cost-map transformations, and statistical evaluation scripts are implemented natively within a Python environment utilizing the high-performance computing capabilities of the NumPy, SciPy, and Matplotlib libraries, ensuring structural data type compatibility with the Robot Operating System 2 (ROS2) and Autoware autonomy frameworks.
+This chapter has presented a detailed and mathematically rigorous overview of the engineering
+methodology developed to achieve the research objectives of this Master's thesis. The underlying
+experimental design is structured around a deterministic, simulation-based comparative study
+engineered to evaluate the operational efficacy of the proposed terrain-aware 2.5D A* path planning
+framework against a conventional flat 2D A* planar control baseline. The environmental architecture
+relies on high-fidelity synthetic 3D point cloud datasets rasterized into static 2.5D elevation
+matrices using a conservative maximum elevation mapping envelope. These heightfields are seamlessly
+integrated with programmatically generated single-layer semantic vegetation penalty masks to
+construct a controlled testing suite spanning three distinct topographical relief profiles:
+low-gradient plains, medium-relief rolling hills, and high-relief escarpments. All algorithmic
+modules, cost-map transformations, and statistical evaluation scripts are implemented natively
+within a Python environment utilizing the high-performance computing capabilities of the NumPy,
+SciPy, and Matplotlib libraries, ensuring structural data type compatibility with the Robot
+Operating System 2 (ROS2) and Autoware autonomy frameworks.
 
-To provide a transparent, step-by-step validation tracking loop, the core computational procedure of the navigation stack is executed through five tightly coupled execution steps:
+To provide a transparent, step-by-step validation tracking loop, the core computational procedure of
+the navigation stack is executed through five tightly coupled execution steps:
 
 \begin{enumerate}
     \item \textbf{Spatial Grid Processing:} Compressing unorganized volumetric point cloud vectors (.pcd format) into structured, uniform $500 \times 500$ cell coordinate arrays.
@@ -436,4 +624,13 @@ To provide a transparent, step-by-step validation tracking loop, the core comput
     \item \textbf{Baseline Control Execution:} Routing identical coordinate origins across a flattened, zero-cost representation of the environment using a conventional 2D A* baseline algorithm to isolate performance differences.
 \end{enumerate}
 
-The data acquisition system automatically logs five primary response properties for every generated path segment: total three-dimensional path length ($L_{3D}$), speed-adjusted travel-time proxies (TTP), overall computational execution runtime, uphill-selective energy consumption proxies (ECP), and mean turn angle reductions. This compiled data ledger is subjected to descriptive and inferential statistical evaluations---specifically utilizing percentage-difference matrices, Student's t-tests, and one-way ANOVA routines---to mathematically isolate the performance advantages of multi-dimensional terrain awareness and chart the system's sensitivity to variations in the slope weight coefficient ($\lambda$). This highly controlled, repeatable methodology directly addresses the technical research gaps identified in Chapter 2, providing a robust, scientifically sound framework to answer all stated research objectives.
+The data acquisition system automatically logs five primary response properties for every generated
+path segment: total three-dimensional path length ($L_{3D}$), speed-adjusted travel-time proxies
+(TTP), overall computational execution runtime, uphill-selective energy consumption proxies (ECP),
+and mean turn angle reductions. This compiled data ledger is subjected to descriptive and
+inferential statistical evaluations---specifically utilizing percentage-difference matrices,
+Student's t-tests, and one-way ANOVA routines---to mathematically isolate the performance advantages
+of multi-dimensional terrain awareness and chart the system's sensitivity to variations in the slope
+weight coefficient ($\lambda$). This highly controlled, repeatable methodology directly addresses
+the technical research gaps identified in Chapter 2, providing a robust, scientifically sound
+framework to answer all stated research objectives.

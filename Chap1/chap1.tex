@@ -4,15 +4,15 @@
 
 The rapid paradigm shift toward high-level autonomous systems is fundamentally transforming global
 industrial modalities, establishing new benchmarks for operational efficiency, safety, and
-productivity across diverse sectors \citep{Ref216}. Within this broader context, off-road autonomous
+productivity across diverse sectors \citep{Guizzo_2008_threeengineers}. Within this broader context, off-road autonomous
 navigation represents an especially critical and challenging deployment domain, particularly for
 heavy agricultural machinery tasked with operating autonomously within unstructured and severe field
-environments \citep{Ref10}. Unlike highly regulated urban streets or uniform industrial indoor
+environments \citep{Hameed_2021_comprehensivereview}. Unlike highly regulated urban streets or uniform industrial indoor
 settings, unstructured natural terrains present multi-faceted complexities, including irregular
 surface roughness, unpredictable slope variations, highly irregular topographies, and dynamic
-obstacles \citep{Ref277}. To guarantee reliable vehicle state estimation and successful terrain
+obstacles \citep{Sofman_2006_improvingrobot}. To guarantee reliable vehicle state estimation and successful terrain
 traversal under these erratic conditions, the integration of robust, terrain-aware path planning
-architectures represents an indispensable algorithmic prerequisite \citep{Ref212}. Consequently,
+architectures represents an indispensable algorithmic prerequisite \citep{Sedighi_2019_guidedhybrid}. Consequently,
 overcoming these geometric terrain hazards stands as a primary engineering challenge in modern
 mobile robotics design. 
 
@@ -20,12 +20,12 @@ Within the specific domain of precision agriculture, autonomous navigation frame
 resolve acute demographic, economic, and operational constraints. The global agricultural sector is
 currently facing a dual challenge: an escalating demand for food and crop products driven by
 population growth, occurring alongside a severe, long-term contraction in the available skilled
-labor pool \citep{Ref88}. To mitigate these macro-economic vulnerabilities, increasing the scale of
+labor pool \citep{Emmi_2014_newtrends}. To mitigate these macro-economic vulnerabilities, increasing the scale of
 dependable in-field automation and mobile robotics platforms has become a structural necessity
-\citep{Ref88}. Effective path planning algorithms designed for these agricultural platforms must
+\citep{Emmi_2014_newtrends}. Effective path planning algorithms designed for these agricultural platforms must
 look past simple binary (passable/impassable) obstacle avoidance; they must concurrently minimize
 mechanical energy dissipation, optimize total travel time, and enforce absolute platform stability
-over highly undulating landscapes \citep{Ref10}. To systematically address these multi-objective
+over highly undulating landscapes \citep{Hameed_2021_comprehensivereview}. To systematically address these multi-objective
 criteria, this study focuses on the development, implementation, and validation of a comprehensive
 2.5D terrain-aware path planning framework explicitly engineered to optimize autonomous ground
 vehicle routing across challenging off-road and agricultural topographies.
@@ -36,13 +36,13 @@ Path planning represents a foundational architectural pillar of mobile robot aut
 automated platforms to execute localized routing maneuvers deterministically. Mechanistically, this
 process is tasked with computing an optimal or near-optimal trajectory from an initial coordinates
 origin to a targeted terminal destination while concurrently satisfying explicit kinematic
-constraints and avoiding localized environmental obstacles \citep{Ref406}. Historically, classical
+constraints and avoiding localized environmental obstacles \citep{SanchezIbanez_2021_pathplanning}. Historically, classical
 graph-search and grid-allocation strategies, most notably the Dijkstra and A* algorithms, were
 pioneered to resolve these pathfinding problems within planar, two-dimensional (2D) static
-environments \citep{Ref45, Ref101}. These foundational frameworks operate by evaluating discrete
+environments \citep{Karur_2021_surveypath, Noto_2000_methodshortest}. These foundational frameworks operate by evaluating discrete
 traversal costs between adjacent nodes distributed across a structured grid network or topological
 graph representation, typically optimizing the search space to minimize cumulative path lengths or
-similar spatial clearance metrics \citep{Ref45, Ref101}. For example, the deterministic search
+similar spatial clearance metrics \citep{Karur_2021_surveypath, Noto_2000_methodshortest}. For example, the deterministic search
 behavior of the standard A* algorithm is governed by a multi-variant evaluation cost function
 formalized as:
 
@@ -52,51 +52,51 @@ formalized as:
 
 \noindent where $g(n)$ defines the exact accumulated cost computed from the initial start node to
 the current node $n$, and $h(n)$ represents the heuristic estimation of the remaining traversal cost
-required to reach the terminal goal state \citep{Ref45, Ref101}. While these planar graph-search
+required to reach the terminal goal state \citep{Karur_2021_surveypath, Noto_2000_methodshortest}. While these planar graph-search
 heuristics provide global mathematical optimality within flat workspace boundaries, their
 operational efficacy degrades significantly when deployed across non-planar topographies.
 
 Traditional A* path planning paradigms fall short when confronted with the complex, uneven terrains
 typical of off-road and agricultural settings because they inherently disregard the vertical
-elevation dimension \citep{Ref228}. This geometric omission can lead to severe navigation failures,
+elevation dimension \citep{Bettencourt_2025_indoor25d}. This geometric omission can lead to severe navigation failures,
 such as catastrophic collisions with unmodeled structural obstacles positioned physically above the
 robot's primary 2D reference plane, or the generation of global paths that are physically
-untraversable due to excessive, unsafe slope gradients \citep{Ref228}. To resolve these spatial
+untraversable due to excessive, unsafe slope gradients \citep{Bettencourt_2025_indoor25d}. To resolve these spatial
 deficiencies without incurring prohibitive processing overheads, two-and-a-half-dimensional (2.5D)
 environmental representations have emerged as a highly practical structural compromise between full
 3D volumetric voxel complexity and 2D planar simplicity. Mathematically, a 2.5D elevation map
 correlates horizontal planar coordinates $(x, y)$ with a single, discrete altitude value $z$ for
 every coordinate cell, successfully capturing localized terrain height variations and allowing the
-system to derive key topographic features like slope gradients \citep{Ref228}. This strategic
+system to derive key topographic features like slope gradients \citep{Bettencourt_2025_indoor25d}. This strategic
 abstraction enables pathfinding algorithms to directly factor in critical traversability criteria
 and localized step distances, completely bypassing the extreme computational burdens and data
-densities associated with full 3D volumetric representations \citep{Ref228}. Transitioning to these
+densities associated with full 3D volumetric representations \citep{Bettencourt_2025_indoor25d}. Transitioning to these
 2.5D mapping models is particularly relevant for autonomous agricultural vehicles, where executing
 stable navigation across sloped landscapes and unmanaged crop fields requires a highly nuanced,
-topologically aware understanding of terrain profiles to prevent platform instability \citep{Ref10}.
+topologically aware understanding of terrain profiles to prevent platform instability \citep{Hameed_2021_comprehensivereview}.
 
 \section{Problem Statement}
 
 The primary challenge in off-road and agricultural navigation stems from the dynamic, non-linear
 complexities of uneven terrain, which cannot be adequately modeled or predicted by conventional two-
-dimensional (2D) path planning paradigms \citep{Ref228}. Relying exclusively on 2D planar
+dimensional (2D) path planning paradigms \citep{Bettencourt_2025_indoor25d}. Relying exclusively on 2D planar
 configurations risks generating trajectories that are locally optimal in terms of horizontal
 distance but physically impossible, highly inefficient, or dangerous due to severe slope gradients,
-large elevation changes, or undetected vertical obstacles \citep{Ref228}. For instance, a planar
+large elevation changes, or undetected vertical obstacles \citep{Bettencourt_2025_indoor25d}. For instance, a planar
 navigation routine may execute a command leading to a terminal collision if it fails to evaluate
 obstacles positioned above its active sensor observation plane, inducing severe tracking and
-navigation errors \citep{Ref228}. Furthermore, attempting to retroactively fix these geometric
+navigation errors \citep{Bettencourt_2025_indoor25d}. Furthermore, attempting to retroactively fix these geometric
 oversights via standard path post-processing often fails to resolve fundamental physical
 incompatibilities, yielding discontinuous, ``choppy'' trajectories or acute turning angles that
-present severe vehicle control challenges \citep{Ref42}. Consequently, relying on flat surface
+present severe vehicle control challenges \citep{Frey_2022_selfsupervisedneartofar}. Consequently, relying on flat surface
 assumptions directly jeopardizes vehicle safety and structural integrity on natural topographies.
 
 Existing off-road path planning methodologies frequently operate within a restrictive trade-off,
 either oversimplifying the underlying terrain model to preserve computational velocity or employing
 full three-dimensional (3D) configurations that incur prohibitive computational overhead
-\citep{Ref233}. While widespread modifications to the classical A* graph-search algorithm
+\citep{Overbye_2022_localoffroad}. While widespread modifications to the classical A* graph-search algorithm
 successfully optimize runtime search velocities, minimize raw path lengths, or manage transient
-dynamic obstacles \citep{Ref169, Ref199, Ref396}, they fail to systematically integrate multi-
+dynamic obstacles \citep{Injarapu_2023_surveyautonomous, Lei_2021_globalpath, Li_2020_pathplanning}, they fail to systematically integrate multi-
 dimensional terrain characteristics into the core cost-evaluation loop for proactive decision-
 making. Specifically, within the domain of agricultural robotics, the direct, real-time evaluation
 of physical three-dimensional step distances (3DSD) and localized slope magnitudes (SM) within the
@@ -128,14 +128,14 @@ Firstly, a significant gap remains concerning the systematic integration of deta
 dimensional geometric terrain attributes directly within the core cost-evaluation loops of two-and-
 a-half-dimensional (2.5D) path planning algorithms. While the classical A* algorithm has seen
 numerous architectural enhancements designed to optimize runtime search efficiency, manage binary
-obstacle avoidance, and navigate transient dynamic environments \citep{Ref169, Ref199, Ref396},
+obstacle avoidance, and navigate transient dynamic environments \citep{Injarapu_2023_surveyautonomous, Lei_2021_globalpath, Li_2020_pathplanning},
 fewer studies explicitly embed a comprehensive set of 2.5D terrain features, such as varying slope
 magnitudes (SM) and precise 3D step distances (3DSD), directly into its cost function for
 agricultural applications. Existing 2.5D navigation methods predominantly focus on discrete obstacle
 representation and structural layout mapping rather than nuanced traversability costs derived
 directly from continuous terrain geometry. Furthermore, contemporary frameworks frequently utilize
 generic or static cost indices that fail to dynamically adapt to the highly variable topographies
-and specific operational challenges encountered by agricultural robots \citep{Ref228}. Consequently,
+and specific operational challenges encountered by agricultural robots \citep{Bettencourt_2025_indoor25d}. Consequently,
 the development of a unified multi-terrain cost function that proactively guides the graph search
 based on these physical terrain properties and an adjustable slope weight ($\lambda$) represents an
 unaddressed and highly necessary contribution.
@@ -144,13 +144,13 @@ Secondly, a secondary research gap involves the lack of boundary constraint vali
 climbability threshold enforcement within post-processing path smoothing techniques. Standard path
 optimization protocols widely implement geometric refinement methods, such as B-splines and Bezier
 curves, to elevate path aesthetics, eliminate acute turning variations, and improve vehicle
-drivability \citep{Ref96, Ref279, Ref42}. However, a significant deficiency exists in consistently
+drivability \citep{Han_2019_agvpath, Zhang_2021_mobilerobot, Frey_2022_selfsupervisedneartofar}. However, a significant deficiency exists in consistently
 coupling these continuous geometric smoothing processes with a rigorous validation of terrain-
 climbability thresholds (e.g., Maximum Climbable Slope) and other localized boundary constraints.
 Because typical smoothing algorithms focus exclusively on minimizing curvature derivatives, they
 risk generating kinematically fluid trajectories that, while visually appealing, inadvertently route
 the vehicle through steep sections that violate the actual physical traversability limits of the
-platform, leading to unsafe or impossible execution profiles \citep{Ref42}. Currently, the explicit
+platform, leading to unsafe or impossible execution profiles \citep{Frey_2022_selfsupervisedneartofar}. Currently, the explicit
 coupling of B-spline refinement with discrete sampling checks for boundary compliance, vegetation
 exposure, and maximum slope thresholds is not extensively addressed in the literature for 2.5D
 terrain-aware planning in agricultural environments. Proactively embedding these physical threshold
@@ -163,7 +163,7 @@ against conventional 2D baselines across highly diverse topographic profiles. Wh
 evaluation for path planning algorithms is a standard convention in mobile robotics research,
 contemporary frameworks frequently rely on oversimplified geometric metrics or fail to provide a
 direct, side-by-side comparison with a traditional 2D baseline to demonstrate the explicit value of
-2.5D-informed cost functions \citep{Ref10, Ref560}. This empirical deficiency is particularly
+2.5D-informed cost functions \citep{Hameed_2021_comprehensivereview, Song_2019_smoothedalgorithm}. This empirical deficiency is particularly
 apparent across heterogeneous terrain environments, where algorithms must be benchmarked under
 highly variable gradient complexities, including low-gradient plains, medium-relief hills, and high-
 relief escarpments. Furthermore, a comprehensive suite of performance parameters---comprising exact
@@ -287,15 +287,15 @@ Beyond these theoretical contributions, the practical applications of this frame
 enhance the operational safety, efficiency, and sustainability of autonomous machinery deployed in
 precision agriculture. By implementing a terrain-adaptive path planning loop, the framework
 mitigates severe operational risks, leading to enhanced safety metrics by reducing vehicle exposure
-to catastrophic rollovers, collisions, or immobilization on untraversable gradients \citep{Ref507}.
+to catastrophic rollovers, collisions, or immobilization on untraversable gradients \citep{Li_2019_rolloverfreepath}.
 Factoring the Maximum Climbable Slope (MCS) directly into the optimization pipeline as a hard
 traversability constraint acts as a critical safety barrier to protect expensive, capital-intensive
-field machinery and prevent localized crop damage \citep{Ref368}. Concurrently, optimizing paths
+field machinery and prevent localized crop damage \citep{Saeed_2022_optimalpath}. Concurrently, optimizing paths
 based on 3D distances, slopes, and speed-adjusted travel-time proxies (TTP) translates into
-minimized cycle times and elevated productivity during field execution \citep{Ref10}. Operational
+minimized cycle times and elevated productivity during field execution \citep{Hameed_2021_comprehensivereview}. Operational
 sustainability is further reinforced by proactively evaluating uphill-selective energy consumption
 proxies (ECP) during the graph search, which directly minimizes cumulative fuel consumption and
-battery depletion rates \citep{Ref10}. Additionally, the system's capacity to ingest static 2.5D
+battery depletion rates \citep{Hameed_2021_comprehensivereview}. Additionally, the system's capacity to ingest static 2.5D
 elevation grids derived from point cloud data and overlay a single-layer vegetation penalty mask
 ensures a high degree of adaptability across diverse agricultural landscapes, ranging from standard
 crop fields to heavily sloped terrains.
