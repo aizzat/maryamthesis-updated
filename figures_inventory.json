@@ -1,0 +1,62 @@
+[
+  {
+    "page": 3,
+    "text_preview": "SUPERVISOR\u2019S DECLARATION\nI/We* hereby declare that I/We* have checked this thesis/project* and in my/our* opinion,\nthis thesis/project* is adequate in terms of scope and quality for the award of the degree\nof *Doctor of Philosophy/Master of Engineering/Master of Science in ........... (specializa-\nt",
+    "image_count": 1
+  },
+  {
+    "page": 4,
+    "text_preview": "STUDENTS\u2019S DECLARATION\nI hereby declare that the work in this thesis/project is my own for quotations and sum-\nmaries which have been duly acknowledged. I also declare that it has not been previously\nor concurrently submitted for any other degree at Universiti Malaysia Pahang or any other\ninstitutio",
+    "image_count": 1
+  },
+  {
+    "page": 9,
+    "text_preview": "TABLE OF CONTENTS\nDECLARATION\nTITLE PAGE\nACKNOWLEDGEMENTS\ni\nABSTRAK\nii\nABSTRACT\niii\nTABLE OF CONTENTS\niv\nLIST OF TABLES\nvii\nLIST OF FIGURES\nviii\nLIST OF SYMBOLS\nix\nLIST OF ABBREVIATIONS\nx\nLIST OF APPENDICES\nxi\nCHAPTER 1\nINTRODUCTION\n1\n1.1\nResearch Background\n1\n1.2\nBackground of the Study\n2\n1.3\nProbl",
+    "image_count": 0
+  },
+  {
+    "page": 13,
+    "text_preview": "LIST OF FIGURES\nFigure 2.1:\nSystem overview of a typical unmanned ground vehicle.\n11\nFigure 2.2:\nArchitecture of the proposed autonomous navigation approach.\nDuring real-time navigation, the perception module provides the\noriginal point cloud map and the vehicle pose. The prediction\nmodule predicts ",
+    "image_count": 0
+  },
+  {
+    "page": 27,
+    "text_preview": "Figure 2.1: System overview of a typical unmanned ground vehicle.\n2.2\nOff-Road and Agricultural Autonomous Navigation\n2.2.1 Challenges in Off-Road Environments\nOff-road environments inherently present a significantly more complex and dy-\nnamic challenge for autonomous navigation systems compared to ",
+    "image_count": 1
+  },
+  {
+    "page": 28,
+    "text_preview": "jectories that are geometrically optimal in terms of horizontal distance but physically un-\ntraversable, unsafe, or highly inefficient when projected onto uneven ground (Bettencourt,\nCaramalho, et al., 2025). For example, a planar navigation routine lacks the spatial map-\nping capacity to detect ove",
+    "image_count": 1
+  },
+  {
+    "page": 31,
+    "text_preview": "Figure 2.3: Real-world 3D environment modeling results.\n2.3.2 Point Cloud Data and Grid-Based Mapping\nThe systematic acquisition and processing of spatial environmental data represent\nthe foundational phase in transforming raw, unstructured sensory inputs into actionable ge-\nometric matrices for mob",
+    "image_count": 1
+  },
+  {
+    "page": 33,
+    "text_preview": "vai, et al., 2019\u037e Chen, Kong, et al., 2013\u037e Duc Dung, Thai Duc, et al., 2021\u037e Zhao, Li,\net al., 2016). The algorithm operates through iterative optimization loops, continuously\nselecting the specific node that exhibits the lowest f(n) value from the Open List, transi-\ntioning it to the Closed List,",
+    "image_count": 0
+  },
+  {
+    "page": 37,
+    "text_preview": "Figure 2.4: Illustration of path smoothing applied to a discrete grid-based trajectory.\nerty and their ability to generate continuous, differentiable paths (Zhang & Li, 2021).\nThis mathematical formulation allows engineers to alter local curve shapes by manipulat-\ning discrete control point matrices",
+    "image_count": 1
+  },
+  {
+    "page": 44,
+    "text_preview": "3.2\nResearch Design and Experimental Architecture\nThe validation of the proposed motion planning architecture relies on a determinis-\ntic, simulation-based experimental design configured around a comparative performance\nbenchmarking paradigm. This systemic architecture is engineered to quantitativel",
+    "image_count": 0
+  },
+  {
+    "page": 46,
+    "text_preview": "\u2022 Static 2.5D Elevation Grids: The raw volumetric .pcd datasets are systematically\nparsed and converted into structured, static two-and-a-half-dimensional (2.5D) ele-\nvation grids. This mapping paradigm correlates horizontal planar coordinates (x, y)\nwith a single, discrete altitude value z for each",
+    "image_count": 0
+  },
+  {
+    "page": 50,
+    "text_preview": "eral contour paths. This tunability allows field engineers to dynamically realign\nthe navigation system based on vehicle power limits, soil conditions, or operational\npreferences (e.g., minimizing fuel consumption versus minimizing overall transit\ndistance).\n\u2022 Vegetation Traversal Penalty (Vpenalty)",
+    "image_count": 0
+  }
+]

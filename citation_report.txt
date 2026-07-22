@@ -1,0 +1,9 @@
+=== Citation Verification Report ===
+Total keys in .tex files: 56
+Total entries in rujukan.bib: 56
+
+1. Orphaned Entries (in .bib but never cited in .tex) - REMOVED:
+  - None
+
+2. Missing/Ambiguous Keys (cited in .tex but missing from .bib):
+  - None! All citations match perfectly.

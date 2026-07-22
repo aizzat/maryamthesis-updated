@@ -1,0 +1,154 @@
+Citation Matching Report (Improved)
+Total in-text citation items: 118
+Total bibliography entries parsed (improved): 537
+
+Sample matched citations:
+ - Guizzo, 2008 -> bib entries: [215]
+ - Overbye, 2022 -> bib entries: [453, 453, 453]
+ - Al., 2022 -> bib entries: [454]
+ - Li, 2020 -> bib entries: [339]
+ - Wang,, 2015 -> bib entries: [463]
+
+Unmatched in-text citations (surname,year):
+ - act,1997
+ - bochtis,,2021
+ - lin,,2006
+ - nguyen,,2019
+ - emmi,2014
+ - emmi,2014
+ - bochtis,,2021
+ - pulgar,,2021
+ - sharma,,2021
+ - sharma,,2021
+ - sharma,,2021
+ - caramalho,,2025
+ - caramalho,,2025
+ - caramalho,,2025
+ - malho,,2025
+ - bochtis,,2021
+ - caramalho,,2025
+ - caramalho,,2025
+ - caramalho,,2025
+ - hoeller,,2022
+ - injarapu,2023
+ - injarapu,2023
+ - caramalho,,2025
+ - hoeller,,2022
+ - hoeller,,2022
+ - bochtis,,2021
+ - tang,,2019
+ - omri,,2022
+ - bochtis,,2021
+ - bochtis,,2021
+ - bochtis,,2021
+ - lin,,2006
+ - lin,,2006
+ - lin,,2006
+ - caramalho,,2025
+ - caramalho,,2025
+ - caramalho,,2025
+ - emmi,2014
+ - sunar,,2013
+ - bochtis,,2021
+ - bochtis,,2021
+ - xiang,2006
+ - xiang,2006
+ - xiang,2006
+ - bochtis,,2021
+ - sharma,,2021
+ - caramalho,,2025
+ - cao,,2011
+ - caramalho,,2025
+ - bochtis,,2021
+ - müntzinger,,2021
+ - fang,,2020
+ - fang,,2020
+ - fang,,2020
+ - müntzinger,,2021
+ - sharma,,2021
+ - sharma,,2021
+ - sharma,,2021
+ - lin,,2010
+ - vai,,2019
+ - rivai,,2019
+ - sharma,,2021
+ - sharma,,2021
+ - sharma,,2021
+ - lin,,2010
+ - liu,,2014
+ - zhang,,2019
+ - tang,,2019
+ - lin,,2010
+ - yang,,2023
+ - wei,,2020
+ - wei,,2020
+ - pulgar,,2021
+ - pulgar,,2021
+ - lin,,2018
+ - dong,,2020
+ - zafar,2018
+ - wang,,2020
+ - omri,,2022
+ - wang,,2023
+ - al.,2023
+ - perez,,2023
+ - sharma,,2021
+ - sharma,,2021
+ - zhang,2021
+ - khanmirza,,2019
+ - zhang,2021
+ - hoeller,,2022
+ - hoeller,,2022
+ - sharma,,2021
+ - tang,,2019
+ - lin,,2023
+ - xu,,2021
+ - babinec,,2014
+ - sharma,,2021
+ - sharma,,2021
+ - liu,,2014
+ - bochtis,,2021
+ - babinec,,2014
+ - kwon,,2023
+ - grisleri,,2008
+ - kelly,,2003
+ - meng,,2023
+ - caramalho,,2025
+ - zhang,2021
+ - sharma,,2021
+ - zhang,,2019
+ - tang,,2019
+ - pp.,1880
+ - pp.,2071
+
+Uncited bibliography entries (sample up to 30):
+ - bib#1: Algfoor, Z. A., Sunar, M. S., Abdullah, A., & Kolivand, H. 2013
+ - bib#2: (2013). A multiple mobile robots path planning algorithm based on A-star and dijkstra algorithm. In Proceedings of the 2013 international co
+ - bib#3: Baskara, A. W., Rivai, M., & Hutabarat, D.
+ - bib#4: Algfoor, Z. A., Sunar, M. S., Abdullah, A., & Kolivand, H. 2013
+ - bib#5: (2013). A multiple mobile robots path planning algorithm based on A-star and dijkstra algorithm. In Proceedings of the 2013 international co
+ - bib#6: Baskara, A. W., Rivai, M., & Hutabarat, D.2019
+ - bib#7: (2019). Application SLAM and path planning using A-star algorithm for mobile robot in indoor disaster area. In Proceedings of the 2019 inter
+ - bib#8: Algfoor, Z. A., Sunar, M. S., Abdullah, A., & Kolivand, H. 2013
+ - bib#9: (2013). A multiple mobile robots path planning algorithm based on A-star and dijkstra algorithm. In Proceedings of the 2013 international co
+ - bib#10: Baskara, A. W., Rivai, M., & Hutabarat, D.2019
+ - bib#11: (2019). Application SLAM and path planning using A-star algorithm for mobile robot in indoor disaster area. In Proceedings of the 2019 inter
+ - bib#12: (2025). Indoor 2.5D navigation for ground robots. In 2025 ieee international conference on autonomous robot systems and competitions (icarsc
+ - bib#13: Algfoor, Z. A., Sunar, M. S., Abdullah, A., & Kolivand, H. 2013
+ - bib#14: (2013). A multiple mobile robots path planning algorithm based on A-star and dijkstra algorithm. In Proceedings of the 2013 international co
+ - bib#15: Baskara, A. W., Rivai, M., & Hutabarat, D.2019
+ - bib#16: (2019). Application SLAM and path planning using A-star algorithm for mobile robot in indoor disaster area. In Proceedings of the 2019 inter
+ - bib#17: (2025). Indoor 2.5D navigation for ground robots. In 2025 ieee international conference on autonomous robot systems and competitions (icarsc
+ - bib#18: (2008). Autonomous off-road navigation using stereo-vision and laser-rangefinder fusion for outdoor obstacles detection. In Proceedings of t
+ - bib#19: Chen, X., Kong, Y., Fang, X., & Wu, Q.
+ - bib#20: Algfoor, Z. A., Sunar, M. S., Abdullah, A., & Kolivand, H. 2013
+ - bib#21: (2013). A multiple mobile robots path planning algorithm based on A-star and dijkstra algorithm. In Proceedings of the 2013 international co
+ - bib#22: Baskara, A. W., Rivai, M., & Hutabarat, D.2019
+ - bib#23: (2019). Application SLAM and path planning using A-star algorithm for mobile robot in indoor disaster area. In Proceedings of the 2019 inter
+ - bib#24: (2025). Indoor 2.5D navigation for ground robots. In 2025 ieee international conference on autonomous robot systems and competitions (icarsc
+ - bib#25: (2008). Autonomous off-road navigation using stereo-vision and laser-rangefinder fusion for outdoor obstacles detection. In Proceedings of t
+ - bib#26: Chen, X., Kong, Y., Fang, X., & Wu, Q.2013
+ - bib#27: (2013). A fast two-stage ACO algorithm for robotic path planning. Neural Computing and Applications, 22(2), 313–319. https://doi.org/10.1007
+ - bib#28: Algfoor, Z. A., Sunar, M. S., Abdullah, A., & Kolivand, H. 2013
+ - bib#29: (2013). A multiple mobile robots path planning algorithm based on A-star and dijkstra algorithm. In Proceedings of the 2013 international co
+ - bib#30: Baskara, A. W., Rivai, M., & Hutabarat, D.2019
