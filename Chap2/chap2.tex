@@ -23,12 +23,12 @@ alongside the empirical benchmarking metrics utilized for performance evaluation
 analyzing these current methodologies to isolate areas of consensus, divergence, and operational
 limitations, this review serves to clearly delineate the specific technical gaps that this Master's
 thesis addresses. Grounding the study within this established scholarly landscape provides a clear
-justification for the development of the proposed terrain-aware path planning framework.
+justification for the development of the proposed terrain-aware path planning framework. As an example, the system overview of a typical unmanned ground vehicle is illustrated in Figure \ref{fig:ugv_system_overview} \citep{Overbye_2022_localoffroad}.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.85\textwidth]{figures/fig_ugv_system_overview}
-    \caption{System overview of a typical unmanned ground vehicle.}
+    \includegraphics[width=0.85\textwidth]{figures/UGV System Overview}
+    \caption{\cite{Overbye_2022_localoffroad} System overview of a typical unmanned ground vehicle.}
     \label{fig:ugv_system_overview}
 \end{figure}
 
@@ -58,12 +58,12 @@ across a steep incline that exceeds the platform's physical climbing capabilitie
 catastrophic structural collisions or complete vehicle immobilization \citep{Bettencourt_2025_indoor25d}. Therefore,
 executing safe and efficient off-road navigation necessitates a robust mathematical understanding
 and direct integration of three-dimensional terrain characteristics into the core path planning
-process.
+process. The architecture of a proposed autonomous navigation approach addressing these challenges is shown in Figure \ref{fig:nav_architecture} \citep{Liu_2023_autonomousnavigation}.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.85\textwidth]{figures/fig_nav_architecture}
-    \caption{Architecture of the proposed autonomous navigation approach. During real-time navigation, the perception module provides the original point cloud map and the vehicle pose. The prediction module predicts the local point cloud map and performs traversal cost.}
+    \includegraphics[width=0.85\textwidth]{figures/Nav_Architecture}
+    \caption{\cite{Liu_2023_autonomousnavigation} Architecture of the proposed autonomous navigation approach. During real-time navigation, the perception module provides the original point cloud map and the vehicle pose. The prediction module predicts the local point cloud map and performs traversal cost.}
     \label{fig:nav_architecture}
 \end{figure}
 
@@ -145,12 +145,12 @@ volumetric voxel densities, 2.5D configurations provide sufficient geometric det
 resource-efficient off-road routing. This structural balance is particularly vital for autonomous
 agricultural vehicles, where executing stable navigation across sloped landscapes and unmanaged crop
 fields requires a highly nuanced, topologically aware understanding of terrain profiles to prevent
-platform instability \citep{Hameed_2021_comprehensivereview}.
+platform instability \citep{Hameed_2021_comprehensivereview}. An example of real-world 3D environment modeling results is depicted in Figure \ref{fig:3d_terrain_model} \citep{Lv_2024_globaloffroad}.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.85\textwidth]{figures/fig_3d_terrain_model}
-    \caption{Real-world 3D environment modeling results.}
+    \caption{\cite{Lv_2024_globaloffroad} Real-world 3D environment modeling results.}
     \label{fig:3d_terrain_model}
 \end{figure}
 
@@ -339,12 +339,12 @@ tracking instabilities within low-level feedback controllers \citep{Karur_2021_s
 Therefore, implementing an algorithmic post-processing refinement step to transform these piece-wise
 discrete nodes into continuous, curvilinear trajectories represents a vital prerequisite for
 elevating vehicle drivability, minimizing tracking errors, and safeguarding platform structural
-integrity.
+integrity. An illustration of path smoothing applied to a discrete trajectory is presented in Figure \ref{fig:path_smoothing} \citep{Song_2019_smoothedalgorithm}.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.85\textwidth]{figures/fig_chap3}
-    \caption{Off-line path planning simulation result. (a) The satellite map (2.13 $\times$ 3.93 km) of Roadford Lake with marked start and end points. (b) The binary grid map (100 $\times$ 350 grid cells, 1 grid cell column length = 21.3 m and row length = 11.2 m) with trajectories generated using different PSs of the smoothed A* algorithm, i.e. original trajectory without path smoothing, namely the conventional A* algorithm result (blue line), trajectory after applying the LOPS and WRPS, and smoothed trajectory after using the IPS (red line).}
+    \caption{\cite{Song_2019_smoothedalgorithm} Off-line path planning simulation result. (a) The satellite map (2.13 $\times$ 3.93 km) of Roadford Lake with marked start and end points. (b) The binary grid map (100 $\times$ 350 grid cells, 1 grid cell column length = 21.3 m and row length = 11.2 m) with trajectories generated using different PSs of the smoothed A* algorithm, i.e. original trajectory without path smoothing, namely the conventional A* algorithm result (blue line), trajectory after applying the LOPS and WRPS, and smoothed trajectory after using the IPS (red line).}
     \label{fig:path_smoothing}
 \end{figure}
 

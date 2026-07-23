@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-07-18T20:09:33.941924",
+  "original_pdf": "UMP Template.pdf",
+  "output_pdf": "UMP Template - improved figures.pdf",
+  "total_figures_replaced": 4,
+  "figures": [
+    {
+      "name": "Figure 2.1",
+      "original_page": 27,
+      "title": "System Overview of UGV",
+      "svg_file": "figure_2_1_system_overview.svg",
+      "png_file": "figure_2_1_system_overview.png"
+    },
+    {
+      "name": "Figure 2.2",
+      "original_page": 28,
+      "title": "Path Planning: 2D vs 2.5D",
+      "svg_file": "figure_2_2_path_planning.svg",
+      "png_file": "figure_2_2_path_planning.png"
+    },
+    {
+      "name": "Figure 2.3",
+      "original_page": 31,
+      "title": "3D Environment Modeling Results",
+      "svg_file": "figure_2_3_environment_modeling.svg",
+      "png_file": "figure_2_3_environment_modeling.png"
+    },
+    {
+      "name": "Figure 2.4",
+      "original_page": 37,
+      "title": "Path Smoothing: Grid-Based vs B-Spline",
+      "svg_file": "figure_2_4_path_smoothing.svg",
+      "png_file": "figure_2_4_path_smoothing.png"
+    }
+  ]
+}

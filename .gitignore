@@ -9,3 +9,8 @@
 *.fls
 *.fdb_latexmk
 .DS_Store
+Literature/
+tectonic.exe
+tectonic.zip
+figures_from_ump/
+__pycache__/

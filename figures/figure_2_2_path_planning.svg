@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <style>
+    rect { fill: #f0f0f0; stroke: #333; stroke-width: 2; }
+    circle { fill: #ff6b6b; }
+    path { stroke: #0066cc; stroke-width: 3; fill: none; }
+    text { font-family: Arial, sans-serif; font-size: 14px; fill: #000; }
+    .title { font-size: 18px; font-weight: bold; }
+    .label { font-size: 12px; }
+  </style>
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" class="title">Path Planning: 2D vs 2.5D Elevation Grid</text>
+  <!-- 2D Path Planning -->
+  <text x="200" y="70" text-anchor="middle" font-weight="bold">2D Path (Horizontal)</text>
+  <rect x="50" y="100" width="300" height="250" rx="5" fill="#e8f4f8"/>
+  <circle cx="100" cy="150" r="8"/><!-- Start -->
+  <circle cx="300" cy="300" r="8" fill="#00cc00"/><!-- Goal -->
+  <!-- 2D path -->
+  <path d="M 100 150 L 120 170 L 150 180 L 200 200 L 280 280 L 300 300"/>
+  <text x="200" y="380" text-anchor="middle" class="label">Simple Euclidean Path</text>
+  <text x="200" y="400" text-anchor="middle" class="label">(No terrain awareness)</text>
+  <!-- 2.5D Path Planning -->
+  <text x="600" y="70" text-anchor="middle" font-weight="bold">2.5D Path (Terrain-Aware)</text>
+  <rect x="450" y="100" width="300" height="250" rx="5" fill="#e8ffe8"/>
+  <circle cx="500" cy="150" r="8"/><!-- Start -->
+  <circle cx="700" cy="300" r="8" fill="#00cc00"/><!-- Goal -->
+  <!-- 2.5D path (with slope indication) -->
+  <path d="M 500 150 Q 520 160 550 170 Q 600 190 650 240 Q 680 270 700 300" stroke-dasharray="5,5"/>
+  <!-- Elevation contours -->
+  <line x1="470" y1="280" x2="730" y2="280" stroke="#999" stroke-dasharray="3,3"/>
+  <line x1="470" y1="250" x2="730" y2="250" stroke="#999" stroke-dasharray="3,3"/>
+  <line x1="470" y1="220" x2="730" y2="220" stroke="#999" stroke-dasharray="3,3"/>
+  <text x="600" y="380" text-anchor="middle" class="label">Slope-Aware Path</text>
+  <text x="600" y="400" text-anchor="middle" class="label">(With elevation constraints)</text>
+  <!-- Legend -->
+  <text x="100" y="480" font-size="12px">● = Start Point</text>
+  <text x="100" y="510" font-size="12px">● = Goal Point</text>
+</svg>
